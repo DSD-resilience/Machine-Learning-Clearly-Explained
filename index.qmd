@@ -2,7 +2,7 @@
 title: "Machine-Learning-Clearly-Explained"
 ---
 
-This is another Quarto website.
+This is yet another Quarto website.
 
 To learn more about Quarto websites visit <https://quarto.org/docs/websites>.
 
