@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Linear and Logical Regression – Machine Learning Clearly Explained</title>
+<title>Clustering – Machine Learning Clearly Explained</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -19,40 +19,6 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
-}
-/* CSS for syntax highlighting */
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -123,7 +89,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="./index.html" aria-current="page"> 
+    <a class="nav-link" href="./index.html"> 
 <span class="menu-text">Regression</span></a>
   </li>  
   <li class="nav-item">
@@ -131,7 +97,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span class="menu-text">Classification</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./clustering.html"> 
+    <a class="nav-link active" href="./clustering.html" aria-current="page"> 
 <span class="menu-text">Clustering</span></a>
   </li>  
   <li class="nav-item">
@@ -157,7 +123,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Linear and Logical Regression</h1>
+<h1 class="title">Clustering</h1>
 </div>
 
 
@@ -174,134 +140,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p><strong>Regression</strong> is a way to find a relationship between variables and use that relationship to make predictions.</p>
-<p>For example:</p>
-<ul>
-<li><p>If you know the <strong>size of a house</strong>, regression can help predict its <strong>price</strong>.</p></li>
-<li><p>If you know a <strong>student’s study hours</strong>, regression can estimate their <strong>exam score</strong>.</p></li>
-</ul>
-<p>It’s like drawing a <strong>trend line</strong> through data points to see how one thing changes with another. 📈😊</p>
-<p><strong>Linear regression</strong> is one of the most useful and popular forecasting tools available. Quite simply, it assumes that there is a linear relationship between one variable and a second variable. If you plot data for these two variables on a graph, you can draw a line through it and make a decent guess about what the second variable will be depending on the value of the first variable.</p>
-<p>To learn more technical aspects of linear regression, visit <a href="https://en.wikipedia.org/wiki/Linear_regression" class="uri">the Wikipedia entry</a>.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load dataset</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(iris)</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Fit linear regression model</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="fu">lm</span>(Sepal.Length <span class="sc">~</span> Petal.Length, <span class="at">data =</span> iris)</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Display a visualization that helps explain the model</span></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Load necessary library</span></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">'ggplot2'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code># Downloading packages -------------------------------------------------------
-- Downloading ggplot2 from CRAN ...             OK [4.7 Mb in 0.43s]
-- Downloading gtable from CRAN ...              OK [213 Kb in 0.32s]
-- Downloading isoband from CRAN ...             OK [1.6 Mb in 0.37s]
-- Downloading scales from CRAN ...              OK [682.7 Kb in 0.31s]
-- Downloading farver from CRAN ...              OK [1.4 Mb in 0.34s]
-- Downloading labeling from CRAN ...            OK [57.8 Kb in 0.31s]
-- Downloading munsell from CRAN ...             OK [235.8 Kb in 0.31s]
-- Downloading colorspace from CRAN ...          OK [2.5 Mb in 0.32s]
-- Downloading RColorBrewer from CRAN ...        OK [51.8 Kb in 0.32s]
-- Downloading viridisLite from CRAN ...         OK [1.2 Mb in 0.31s]
-- Downloading tibble from CRAN ...              OK [656 Kb in 0.32s]
-- Downloading fansi from CRAN ...               OK [299.4 Kb in 0.31s]
-- Downloading magrittr from CRAN ...            OK [215.3 Kb in 0.33s]
-- Downloading pillar from CRAN ...              OK [634.2 Kb in 0.89s]
-- Downloading utf8 from CRAN ...                OK [143.4 Kb in 0.31s]
-- Downloading vctrs from CRAN ...               OK [1.2 Mb in 0.31s]
-- Downloading pkgconfig from CRAN ...           OK [17.1 Kb in 0.31s]
-- Downloading withr from CRAN ...               OK [211.6 Kb in 0.31s]
-Successfully downloaded 18 packages in 8.6 seconds.
-
-The following package(s) will be installed:
-- colorspace   [2.1-1]
-- fansi        [1.0.6]
-- farver       [2.1.2]
-- ggplot2      [3.5.1]
-- gtable       [0.3.6]
-- isoband      [0.2.7]
-- labeling     [0.4.3]
-- magrittr     [2.0.3]
-- munsell      [0.5.1]
-- pillar       [1.10.1]
-- pkgconfig    [2.0.3]
-- RColorBrewer [1.1-3]
-- scales       [1.3.0]
-- tibble       [3.2.1]
-- utf8         [1.2.4]
-- vctrs        [0.6.5]
-- viridisLite  [0.4.2]
-- withr        [3.0.2]
-These packages will be installed into "~/work/Machine-Learning-Clearly-Explained/Machine-Learning-Clearly-Explained/renv/library/R-4.2/x86_64-pc-linux-gnu".
-
-# Installing packages --------------------------------------------------------
-- Installing gtable ...                         OK [installed binary and cached in 0.34s]
-- Installing isoband ...                        OK [installed binary and cached in 0.23s]
-- Installing farver ...                         OK [installed binary and cached in 0.23s]
-- Installing labeling ...                       OK [installed binary and cached in 0.19s]
-- Installing colorspace ...                     OK [installed binary and cached in 0.3s]
-- Installing munsell ...                        OK [installed binary and cached in 0.25s]
-- Installing RColorBrewer ...                   OK [installed binary and cached in 0.19s]
-- Installing viridisLite ...                    OK [installed binary and cached in 0.21s]
-- Installing scales ...                         OK [installed binary and cached in 0.37s]
-- Installing fansi ...                          OK [installed binary and cached in 0.21s]
-- Installing magrittr ...                       OK [installed binary and cached in 0.2s]
-- Installing utf8 ...                           OK [installed binary and cached in 0.2s]
-- Installing vctrs ...                          OK [installed binary and cached in 0.34s]
-- Installing pillar ...                         OK [installed binary and cached in 0.41s]
-- Installing pkgconfig ...                      OK [installed binary and cached in 0.2s]
-- Installing tibble ...                         OK [installed binary and cached in 0.46s]
-- Installing withr ...                          OK [installed binary and cached in 0.2s]
-- Installing ggplot2 ...                        OK [installed binary and cached in 0.64s]
-Successfully installed 18 packages in 5.7 seconds.</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Create scatter plot with regression line</span></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(iris, <span class="fu">aes</span>(<span class="at">x =</span> Petal.Length, <span class="at">y =</span> Sepal.Length)) <span class="sc">+</span></span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">color =</span> <span class="st">"blue"</span>, <span class="at">alpha =</span> <span class="fl">0.6</span>) <span class="sc">+</span>  <span class="co"># Scatter points</span></span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>, <span class="at">color =</span> <span class="st">"red"</span>, <span class="at">fill =</span> <span class="st">"pink"</span>, <span class="at">se =</span> <span class="cn">TRUE</span>) <span class="sc">+</span>  <span class="co"># Regression line</span></span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Relationship Between Sepal Length and Petal Length"</span>,</span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>       <span class="at">subtitle =</span> <span class="st">"A simple linear regression model"</span>,</span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"Petal Length"</span>,</span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Sepal Length"</span>) <span class="sc">+</span></span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="index_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
-<p>The variable Petal Length is on the x-axis (horizontal) and is called the “independent” variable. The variable Sepal Length is on the y-axis (vertical) and is called the “dependent” variable. As you might guess, the objective of this “model” (a simulation of reality) is to see how much influence Petal Length may have on Sepal Length. We don’t know if they are related at all at first, but by examining the data we can tease out that perhaps we can draw a straight line through the data that explains a possible relationship. In this case we see that, generally speaking, the longer the petal length is on an iris, the longer sepal length will be. Sometimes these relationships are intuitive, such as a taller person being heavier than a short person, but not always. Generally, we use data science to look for non-obvious relationships and performing a linear regression is just one tool.</p>
-<p>Now that we have an intuitive grasp on the subject from the visualization, let’s look at the statistical facts about this model.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Display model summary</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(model)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>
-Call:
-lm(formula = Sepal.Length ~ Petal.Length, data = iris)
-
-Residuals:
-     Min       1Q   Median       3Q      Max 
--1.24675 -0.29657 -0.01515  0.27676  1.00269 
-
-Coefficients:
-             Estimate Std. Error t value Pr(&gt;|t|)    
-(Intercept)   4.30660    0.07839   54.94   &lt;2e-16 ***
-Petal.Length  0.40892    0.01889   21.65   &lt;2e-16 ***
----
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
-
-Residual standard error: 0.4071 on 148 degrees of freedom
-Multiple R-squared:   0.76, Adjusted R-squared:  0.7583 
-F-statistic: 468.6 on 1 and 148 DF,  p-value: &lt; 2.2e-16</code></pre>
-</div>
-</div>
+<p>Clustering is used when you want to classify your data but you are not sure how. Clustering is a form of <strong>unsupervised</strong> learning.</p>
 
 
 
