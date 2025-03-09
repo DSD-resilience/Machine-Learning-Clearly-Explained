@@ -1,0 +1,6 @@
+---
+title: "Classification"
+format: html
+---
+
+Classification models are used when you know the categories, or labels, that you wish to use. Both classification and regression are forms of **supervised** learning.

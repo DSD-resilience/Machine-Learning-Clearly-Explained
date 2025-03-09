@@ -6,7 +6,11 @@ website:
   navbar:
     left:
       - href: index.qmd
-        text: Home
+        text: Regression
+      - href: classification.qmd
+        text: Classification
+      - href: clustering.qmd
+        text: Clustering
       - about.qmd
 
 format:

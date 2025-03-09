@@ -1,0 +1,6 @@
+---
+title: "Clustering"
+format: html
+---
+
+Clustering is used when you want to classify your data but you are not sure how. Clustering is a form of **unsupervised** learning.
