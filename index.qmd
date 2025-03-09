@@ -17,8 +17,8 @@ It’s like drawing a **trend line** through data points to see how one thing ch
 To learn more technical aspects of linear regression, visit [the Wikipedia entry](https://en.wikipedia.org/wiki/Linear_regression){.uri}.
 
 ```{r}
-#| message: true
-#| warning: true
+#| message: false
+#| warning: false
 # Load dataset
 data(iris)
 
