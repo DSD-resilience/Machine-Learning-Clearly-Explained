@@ -2,7 +2,7 @@ project:
   type: website
 
 website:
-  title: "Machine-Learning-Clearly-Explained"
+  title: "Machine Learning Clearly Explained"
   navbar:
     left:
       - href: index.qmd
@@ -12,7 +12,7 @@ website:
 format:
   html:
     theme:
-      - cosmo
+      - cyborg
       - brand
     css: styles.css
     toc: true

@@ -1,11 +1,53 @@
 ---
-title: "Machine-Learning-Clearly-Explained"
+title: "Linear and Logical Regression"
 ---
 
-This is yet another Quarto website.
+**Regression** is a way to find a relationship between variables and use that relationship to make predictions.
 
-To learn more about Quarto websites visit <https://quarto.org/docs/websites>.
+For example:
+
+-   If you know the **size of a house**, regression can help predict its **price**.
+
+-   If you know a **student’s study hours**, regression can estimate their **exam score**.
+
+It’s like drawing a **trend line** through data points to see how one thing changes with another. 📈😊
+
+**Linear regression** is one of the most useful and popular forecasting tools available. Quite simply, it assumes that there is a linear relationship between one variable and a second variable. If you plot data for these two variables on a graph, you can draw a line through it and make a decent guess about what the second variable will be depending on the value of the first variable.
+
+To learn more technical aspects of linear regression, visit [the Wikipedia entry](https://en.wikipedia.org/wiki/Linear_regression){.uri}.
 
 ```{r}
-1 + 1
+#| message: true
+#| warning: true
+# Load dataset
+data(iris)
+
+# Fit linear regression model
+model <- lm(Sepal.Length ~ Petal.Length, data = iris)
+
+# Display a visualization that helps explain the model
+# Load necessary library
+install.packages('ggplot2')
+library(ggplot2)
+
+# Create scatter plot with regression line
+ggplot(iris, aes(x = Petal.Length, y = Sepal.Length)) +
+  geom_point(color = "blue", alpha = 0.6) +  # Scatter points
+  geom_smooth(method = "lm", color = "red", fill = "pink", se = TRUE) +  # Regression line
+  labs(title = "Relationship Between Sepal Length and Petal Length",
+       subtitle = "A simple linear regression model",
+       x = "Petal Length",
+       y = "Sepal Length") +
+  theme_minimal()
+```
+
+The variable Petal Length is on the x-axis (horizontal) and is called the "independent" variable. The variable Sepal Length is on the y-axis (vertical) and is called the "dependent" variable. As you might guess, the objective of this "model" (a simulation of reality) is to see how much influence Petal Length may have on Sepal Length. We don't know if they are related at all at first, but by examining the data we can tease out that perhaps we can draw a straight line through the data that explains a possible relationship. In this case we see that, generally speaking, the longer the petal length is on an iris, the longer sepal length will be. Sometimes these relationships are intuitive, such as a taller person being heavier than a short person, but not always. Generally, we use data science to look for non-obvious relationships and performing a linear regression is just one tool.
+
+Now that we have an intuitive grasp on the subject from the visualization, let's look at the statistical facts about this model.
+
+```{r}
+#| message: true
+#| warning: true
+# Display model summary
+summary(model)
 ```
