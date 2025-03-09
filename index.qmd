@@ -30,6 +30,9 @@ model <- lm(Sepal.Length ~ Petal.Length, data = iris)
 ```
 
 ```{r}
+#| message: false
+#| warning: false
+#| output: false
 # Display a visualization that helps explain the model
 # Load necessary library
 install.packages('ggplot2')
@@ -51,8 +54,9 @@ The variable Petal Length is on the x-axis (horizontal) and is called the "indep
 Now that we have an intuitive grasp on the subject from the visualization, let's look at the statistical facts about this model.
 
 ```{r}
-#| message: true
-#| warning: true
+#| message: false
+#| warning: false
+#| output: false
 # Display model summary
 summary(model)
 ```
