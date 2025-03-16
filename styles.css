@@ -1,8 +1,15 @@
 /* css styles */
 
+.navbar-brand {
+  font-family: 'Arial', sans-serif; /* Change to your preferred font */
+  font-weight: bold;  /* Make it bold */
+  font-size: 24px;  /* Adjust size as needed */
+  color: #ff5733; /* Change color (optional) */
+}
+
 h1.title {
   font-family: 'Arial', sans-serif; /* Change font */
   font-weight: bold; /* Make title bold */
-  color: #1a1a1a; /* Change color (optional) */
+  color: #hotpink; /* Change color (optional) */
   text-align: center; /* Center the title (optional) */
 }
