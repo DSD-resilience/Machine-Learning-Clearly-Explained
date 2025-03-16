@@ -60,3 +60,33 @@ Now that we have an intuitive grasp on the subject from the visualization, let's
 # Display model summary
 summary(model)
 ```
+
+**Logistical regression** is also quite useful. It Logistic regression is a statistical method used for binary classification, where the outcome variable has two possible values (e.g., 0 or 1, yes or no, true or false). It models the probability of one class occurring using the logistic (sigmoid) function, which maps any real-valued input to a value between 0 and 1.
+
+Logistic regression is commonly used in fields like medicine, finance, and social sciences for tasks such as disease prediction, credit scoring, and customer retention analysis.
+
+Let's predict whether a car has **automatic (am = 0) or manual (am = 1) transmission** based on its **miles per gallon (mpg)**:
+
+```{r}
+# Load dataset
+data(mtcars)
+
+# Convert 'am' to a factor (0 = automatic, 1 = manual)
+mtcars$am <- as.factor(mtcars$am)
+
+# Fit a logistic regression model
+model <- glm(am ~ mpg, data = mtcars, family = binomial)
+
+# Summary of the model
+summary(model)
+```
+
+-   The model predicts whether a car is **manual (1) or automatic (0)** based on `mpg`.
+
+<!-- -->
+
+-   The coefficient of `mpg` tells us whether increasing `mpg` makes a car more likely to have a manual transmission.
+
+<!-- -->
+
+-   The output is in **log-odds**, but we can convert it to probabilities.
