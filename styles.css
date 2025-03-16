@@ -1,1 +1,8 @@
 /* css styles */
+
+h1.title {
+  font-family: 'Arial', sans-serif; /* Change font */
+  font-weight: bold; /* Make title bold */
+  color: #1a1a1a; /* Change color (optional) */
+  text-align: center; /* Center the title (optional) */
+}
