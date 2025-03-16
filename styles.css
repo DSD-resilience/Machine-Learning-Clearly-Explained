@@ -7,9 +7,18 @@
   color: #ff5733; /* Change color (optional) */
 }
 
+body {
+  background-color: #000022;
+  color: #00ffff;
+  font-family: "Orbitron", sans-serif;
+}
+h1, h2, h3 {
+  text-shadow: 0 0 10px #ff00ff;
+}
+
 h1.title {
   font-family: 'Arial', sans-serif; /* Change font */
   font-weight: bold; /* Make title bold */
-  color: #hotpink; /* Change color (optional) */
+  color: #bb2777; /* Change color (optional) */
   text-align: center; /* Center the title (optional) */
 }

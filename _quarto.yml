@@ -15,10 +15,8 @@ website:
 
 format:
   html:
-    theme:
-      - cyborg
-      - brand
-    css: styles.css
+    theme: darkly
+    css: styles/cyberpunk.css
     toc: true
 
 editor: visual
