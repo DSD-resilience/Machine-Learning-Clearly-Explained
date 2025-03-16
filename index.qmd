@@ -61,7 +61,7 @@ Now that we have an intuitive grasp on the subject from the visualization, let's
 summary(model)
 ```
 
-**Logistical regression** is also quite useful. It Logistic regression is a statistical method used for binary classification, where the outcome variable has two possible values (e.g., 0 or 1, yes or no, true or false). It models the probability of one class occurring using the logistic (sigmoid) function, which maps any real-valued input to a value between 0 and 1.
+**Logistic regression** is also quite useful. It is a statistical method used for binary classification, where the outcome variable has two possible values (e.g., 0 or 1, yes or no, true or false). It models the probability of one class occurring using the logistic (sigmoid) function, which maps any real-valued input to a value between 0 and 1.
 
 Logistic regression is commonly used in fields like medicine, finance, and social sciences for tasks such as disease prediction, credit scoring, and customer retention analysis.
 
