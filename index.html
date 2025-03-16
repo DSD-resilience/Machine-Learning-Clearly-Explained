@@ -213,6 +213,57 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Display model summary</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(model)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+<p><strong>Logistical regression</strong> is also quite useful. It Logistic regression is a statistical method used for binary classification, where the outcome variable has two possible values (e.g., 0 or 1, yes or no, true or false). It models the probability of one class occurring using the logistic (sigmoid) function, which maps any real-valued input to a value between 0 and 1.</p>
+<p>Logistic regression is commonly used in fields like medicine, finance, and social sciences for tasks such as disease prediction, credit scoring, and customer retention analysis.</p>
+<p>Let’s predict whether a car has <strong>automatic (am = 0) or manual (am = 1) transmission</strong> based on its <strong>miles per gallon (mpg)</strong>:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load dataset</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(mtcars)</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Convert 'am' to a factor (0 = automatic, 1 = manual)</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>mtcars<span class="sc">$</span>am <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(mtcars<span class="sc">$</span>am)</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Fit a logistic regression model</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="fu">glm</span>(am <span class="sc">~</span> mpg, <span class="at">data =</span> mtcars, <span class="at">family =</span> binomial)</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Summary of the model</span></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(model)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+glm(formula = am ~ mpg, family = binomial, data = mtcars)
+
+Deviance Residuals: 
+    Min       1Q   Median       3Q      Max  
+-1.5701  -0.7531  -0.4245   0.5866   2.0617  
+
+Coefficients:
+            Estimate Std. Error z value Pr(&gt;|z|)   
+(Intercept)  -6.6035     2.3514  -2.808  0.00498 **
+mpg           0.3070     0.1148   2.673  0.00751 **
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+(Dispersion parameter for binomial family taken to be 1)
+
+    Null deviance: 43.230  on 31  degrees of freedom
+Residual deviance: 29.675  on 30  degrees of freedom
+AIC: 33.675
+
+Number of Fisher Scoring iterations: 5</code></pre>
+</div>
+</div>
+<ul>
+<li>The model predicts whether a car is <strong>manual (1) or automatic (0)</strong> based on <code>mpg</code>.</li>
+</ul>
+<!-- -->
+<ul>
+<li>The coefficient of <code>mpg</code> tells us whether increasing <code>mpg</code> makes a car more likely to have a manual transmission.</li>
+</ul>
+<!-- -->
+<ul>
+<li>The output is in <strong>log-odds</strong>, but we can convert it to probabilities.</li>
+</ul>
 
 
 
