@@ -15,8 +15,8 @@ website:
 
 format:
   html:
-    theme: darkly
-    css: styles/cyberpunk.css
+    theme: united
+    css: styles.css
     toc: true
 
 editor: visual
