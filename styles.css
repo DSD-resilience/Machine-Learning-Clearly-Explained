@@ -19,9 +19,11 @@ h1, h2, h3, h4, h5, h6 {
     border-bottom: 2px solid #2E8B57; /* Slightly darker green accent */
 }
 
+/* --- Change Navbar Font Color to Terracotta --- */
 .navbar-default .navbar-brand,
 .navbar-default .navbar-nav > li > a {
-    color: #f8f8f8 !important; /* White text for readability */
+    color: #D96C52 !important; /* Terracotta Text */
+    font-weight: bold;
 }
 
 /* --- Buttons --- */
