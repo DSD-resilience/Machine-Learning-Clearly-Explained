@@ -1,24 +1,66 @@
 /* css styles */
 
-.navbar-brand {
-  font-family: 'Arial', sans-serif; /* Change to your preferred font */
-  font-weight: bold;  /* Make it bold */
-  font-size: 24px;  /* Adjust size as needed */
-  color: #ff5733; /* Change color (optional) */
-}
-
+/* --- General Styles --- */
 body {
-  background-color: #000022;
-  color: #00ffff;
-  font-family: "Orbitron", sans-serif;
-}
-h1, h2, h3 {
-  text-shadow: 0 0 10px #ff00ff;
+    background-color: #f5f5f5;  /* Light natural background */
+    color: #2E2E2E;  /* Soft dark gray text */
+    font-family: "Arial", sans-serif;
 }
 
-h1.title {
-  font-family: 'Arial', sans-serif; /* Change font */
-  font-weight: bold; /* Make title bold */
-  color: #bb2777; /* Change color (optional) */
-  text-align: center; /* Center the title (optional) */
+/* --- Titles and Headings --- */
+h1, h2, h3, h4, h5, h6 {
+    color: #3A7D44;  /* Pleasant natural green */
+    font-weight: bold;
+}
+
+/* --- Navbar (United Theme Customization) --- */
+.navbar-default {
+    background-color: #3A7D44 !important; /* Deep green navbar */
+    border-bottom: 2px solid #2E8B57; /* Slightly darker green accent */
+}
+
+.navbar-default .navbar-brand,
+.navbar-default .navbar-nav > li > a {
+    color: #f8f8f8 !important; /* White text for readability */
+}
+
+/* --- Buttons --- */
+.btn-primary {
+    background-color: #4CAF50 !important; /* Refreshing green */
+    border-color: #388E3C !important; 
+}
+
+.btn-primary:hover {
+    background-color: #388E3C !important; /* Darker green on hover */
+}
+
+/* --- Panels / Cards --- */
+.panel {
+    border-color: #3A7D44 !important;
+}
+
+.panel-heading {
+    background-color: #3A7D44 !important;
+    color: #ffffff !important;
+}
+
+/* --- Inputs and Forms --- */
+input, select, textarea {
+    border: 1px solid #A9A9A9 !important;
+    background-color: #FAFAFA !important;
+    color: #2E2E2E !important;
+}
+
+input:focus, select:focus, textarea:focus {
+    border-color: #4CAF50 !important;
+    outline: none !important;
+}
+
+/* --- Links --- */
+a {
+    color: #2E8B57 !important;
+}
+
+a:hover {
+    color: #1B5E20 !important; /* Slightly darker green on hover */
 }
