@@ -18,6 +18,8 @@ To learn more technical aspects of linear regression, visit [the Wikipedia entry
 
 An initial model for "simple linear regression" is easy to build in R. This may not seem that impressive on first blush, but we'll examine its technical output shortly.
 
+Load the data set and build a linear model:
+
 ```{r}
 #| message: false
 #| warning: false
@@ -29,15 +31,23 @@ data(iris)
 model <- lm(Sepal.Length ~ Petal.Length, data = iris)
 ```
 
+Load the necessary library for the chart:
+
+```{r}
+#| message: false
+#| warning: false
+#| output: false
+# ggplot2 makes great charts!
+install.packages('ggplot2')
+library(ggplot2)
+```
+
+Now build the chart that displays the relationship between variables:
+
 ```{r}
 #| message: false
 #| warning: false
 #| output: true
-# Display a visualization that helps explain the model
-# Load necessary library
-install.packages('ggplot2')
-library(ggplot2)
-
 # Create scatter plot with regression line
 ggplot(iris, aes(x = Petal.Length, y = Sepal.Length)) +
   geom_point(color = "blue", alpha = 0.6) +  # Scatter points
