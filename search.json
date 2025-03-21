@@ -11,7 +11,7 @@
     "href": "classification.html",
     "title": "Classification",
     "section": "",
-    "text": "Classification models are used when you know the categories, or labels, that you wish to use. Both classification and regression are forms of supervised learning."
+    "text": "Classification models are used when you know the categories, or labels, that you wish to use on your data. Both classification and regression are forms of supervised learning."
   },
   {
     "objectID": "index.html",
