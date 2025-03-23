@@ -16,7 +16,7 @@ It’s like drawing a **trend line** through data points to see how one thing ch
 
 To learn more technical aspects of linear regression, visit [the Wikipedia entry](https://en.wikipedia.org/wiki/Linear_regression){.uri}.
 
-An initial model for "simple linear regression" is easy to build in R. This may not seem that impressive on first blush, but we'll examine its technical output shortly.
+An initial model for "simple linear regression" is easy to build in R. This may not seem that impressive at first, but we'll examine its technical output shortly.
 
 Load the data set and build a linear model:
 
