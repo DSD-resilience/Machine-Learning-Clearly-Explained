@@ -6,6 +6,8 @@ website:
   navbar:
     left:
       - href: index.qmd
+        text: Introduction
+      - href: regression.qmd
         text: Regression
       - href: classification.qmd
         text: Classification
