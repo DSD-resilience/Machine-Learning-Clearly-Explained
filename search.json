@@ -11,7 +11,7 @@
     "href": "clustering.html",
     "title": "Clustering",
     "section": "",
-    "text": "Clustering is used when you want to classify your data but you are not sure how. Clustering is a form of unsupervised learning.\nOne type of popular clustering model is K-means clustering."
+    "text": "Clustering is used when you want to classify your data but you are not sure how. Clustering is a form of unsupervised learning.\nOne type of popular clustering model is K-means clustering.\nAnother popular type of clustering model is Hierarchical clustering."
   },
   {
     "objectID": "index.html",
