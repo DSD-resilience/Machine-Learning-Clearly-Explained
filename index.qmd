@@ -21,4 +21,3 @@ If you want a computer to tell you what marketing might work best, then you can 
 Over time, the computer "learns" what features are distinct from customer to customer and labels the customer by what marketing could work best and result in higher sales.
 
 Both of these instances are kind of like teaching by example rather than instruction.
-
