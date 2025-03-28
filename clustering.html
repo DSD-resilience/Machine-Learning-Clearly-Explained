@@ -146,7 +146,16 @@ ul.task-list li input[type="checkbox"] {
 
 <p>Clustering is used when you want to classify your data but you are not sure how. Clustering is a form of <strong>unsupervised</strong> learning.</p>
 <p>One type of popular clustering model is <strong>K-means</strong> clustering.</p>
+<p><strong>Assumes</strong>: Spherical clusters of equal variance.</p>
+<p><strong>Strengths</strong>: Fast, simple, works well with large datasets.</p>
+<p><strong>Limitations</strong>: Requires the number of clusters (<code>k</code>) to be specified; not great with non-spherical or varying-density clusters.</p>
+<p>R package: [<code>stats::kmeans()</code>], also <code>cluster</code> and <code>factoextra</code> for visualization.</p>
 <p>Another popular type of clustering model is <strong>Hierarchical</strong> clustering.</p>
+<p><strong>Types</strong>: Agglomerative (bottom-up) and divisive (top-down).</p>
+<p><strong>Output</strong>: Dendrogram (tree of clusters).</p>
+<p><strong>Strengths</strong>: Does not require predefined <code>k</code>; good for nested structures.</p>
+<p><strong>Limitations</strong>: Computationally expensive for large datasets.</p>
+<p>R package: <code>stats::hclust()</code>, <code>dendextend</code>, <code>cluster</code>.</p>
 
 
 

@@ -11,7 +11,7 @@
     "href": "clustering.html",
     "title": "Clustering",
     "section": "",
-    "text": "Clustering is used when you want to classify your data but you are not sure how. Clustering is a form of unsupervised learning.\nOne type of popular clustering model is K-means clustering.\nAnother popular type of clustering model is Hierarchical clustering."
+    "text": "Clustering is used when you want to classify your data but you are not sure how. Clustering is a form of unsupervised learning.\nOne type of popular clustering model is K-means clustering.\nAssumes: Spherical clusters of equal variance.\nStrengths: Fast, simple, works well with large datasets.\nLimitations: Requires the number of clusters (k) to be specified; not great with non-spherical or varying-density clusters.\nR package: [stats::kmeans()], also cluster and factoextra for visualization.\nAnother popular type of clustering model is Hierarchical clustering.\nTypes: Agglomerative (bottom-up) and divisive (top-down).\nOutput: Dendrogram (tree of clusters).\nStrengths: Does not require predefined k; good for nested structures.\nLimitations: Computationally expensive for large datasets.\nR package: stats::hclust(), dendextend, cluster."
   },
   {
     "objectID": "index.html",
@@ -32,6 +32,6 @@
     "href": "about.html",
     "title": "About",
     "section": "",
-    "text": "About this site\n\n1 + 1\n\n[1] 2"
+    "text": "JT Miller is a strategic planner and software developer. Therefore, the intersection of his interests and skills is located within data analysis that yields actionable insights.\n\n1 + 1\n\n[1] 2"
   }
 ]
