@@ -2,7 +2,7 @@
 title: "About"
 ---
 
-About this site
+JT Miller is a strategic planner and software developer. Therefore, the intersection of his interests and skills is located within data analysis that yields actionable insights.
 
 ```{r}
 1 + 1
