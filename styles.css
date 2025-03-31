@@ -54,15 +54,15 @@ input, select, textarea {
 }
 
 input:focus, select:focus, textarea:focus {
-    border-color: #4CAF50 !important;
+    border-color: #4C2E2E !important;
     outline: none !important;
 }
 
 /* --- Links --- */
 a {
-    color: #2E8B57 !important;
+    color: #FF0000 !important;
 }
 
 a:hover {
-    color: #1B5E20 !important; /* Slightly darker green on hover */
+    color: #FF003E !important; /* Slightly darker red on hover */
 }
