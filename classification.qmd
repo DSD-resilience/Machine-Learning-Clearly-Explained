@@ -9,7 +9,7 @@ Supervised learning is a type of machine learning where the model learns from a 
 
 A practical example of supervised learning and classification is spam email detection. We want to automatically classify incoming emails as **"spam"** or **"not spam."** The **inputs (features) c**ould include:
 
--    Presence of certain keywords (like "free", "winner", etc.)
+-   Presence of certain keywords (like "free", "winner", etc.)
 
 -   Sender's email address
 
@@ -25,9 +25,11 @@ The **outputs (labels)** in this case would be `1` for spam, and `0` for not spa
 
 Common supervised learning models used for classifying data are:
 
-Logistic Regression
+**Logistic Regression**
 
-Naive Bayes
+This is a statistical method used to model the relationship between a binary dependent variable and one or more independent variables. It estimates the probability that the dependent variable equals a certain value (usually 1), using a logistic function (sigmoid curve).
+
+**Naive Bayes**
 
 Support Vector Machines
 
