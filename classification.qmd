@@ -32,6 +32,9 @@ This is a statistical method used to model the relationship between a binary dep
 To run a logistic regression in R, use the `glm()` function with `family = binomial`. This fits a generalized linear model where the dependent variable is binary (0/1). You should check assumptions, multicollinearity, and goodness-of-fit afterward. Below is the basic structure in an example:
 
 ```{r}
+#| message: false
+#| warning: false
+#| output: true
 # Load libraries
 library(tidyverse)
 library(broom)
