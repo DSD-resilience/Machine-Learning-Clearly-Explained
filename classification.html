@@ -158,7 +158,8 @@ ul.task-list li input[type="checkbox"] {
 <p>The <strong>outputs (labels)</strong> in this case would be <code>1</code> for spam, and <code>0</code> for not spam (aka ham). If you have email a classification model is likely at work on your account, separating the “spam” from the “ham.”</p>
 <p>Common supervised learning models used for classifying data are:</p>
 <p><strong>Logistic Regression</strong></p>
-<p>This is a statistical method used to model the relationship between a binary dependent variable and one or more independent variables. It estimates the probability that the dependent variable equals a certain value (usually 1), using a logistic function (sigmoid curve).</p>
+<p>This is a statistical method used to model the relationship between a binary dependent variable and one or more independent variables. An answer is either “yes” or “no.” It estimates the probability that the dependent variable equals a certain value (usually 1), using a logistic function (a sigmoid, or s-shaped, curve).</p>
+<p>To run a logistic regression in R, use the <code>glm()</code> function with an argument of <code>family = binomial</code>. This fits a generalized linear model where the dependent variable is binary (0/1). You should check assumptions, multicollinearity, and goodness-of-fit afterward. Below is the basic structure in an example:</p>
 <p><strong>Naive Bayes</strong></p>
 <p>Support Vector Machines</p>
 <p>Random Forests</p>
