@@ -2,7 +2,7 @@
 title: "Introduction"
 ---
 
-Machine learning is one of the most important developments in computer science. It has driven modern progress in many ways, spurring progress in medical research, construction, urban planning, and most any field that you can name.
+Machine learning is one of the most important developments in computer science. It has driven modern progress in many ways, improving medical research, construction methods, urban planning, and most any field that you can name that generates and consumes data.
 
 Fundamentally, **it is a way for computers to learn from data and improve at tasks without being explicitly told what to do step by step.**
 
