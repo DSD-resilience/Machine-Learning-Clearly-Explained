@@ -10,7 +10,7 @@ Instead of writing rules by hand, we give the computer a lot of examples, and it
 
 For example:
 
-If you want a computer to recognize pictures of cats, instead of coding all the features of a cat (like fur, ears, tail...), you show it many labeled pictures of cats and non-cats.
+If you want a computer to recognize pictures of cats, instead of coding all the features of a cat (like fur, ears, eyes, tail...), you show it many labeled pictures of cats and non-cats.
 
 Over time, it "learns" what features make a cat picture likely, based on those examples.
 
