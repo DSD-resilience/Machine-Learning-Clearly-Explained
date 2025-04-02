@@ -27,7 +27,7 @@ Common supervised learning models used for classifying data are:
 
 **Logistic Regression**
 
-This is a statistical method used to model the relationship between a binary dependent variable and one or more independent variables. An answer is either "yes" or "no." It estimates the probability that the dependent variable equals a certain value (usually 1), using a logistic function (sigmoid curve).
+This is a statistical method used to model the relationship between a binary dependent variable and one or more independent variables. An answer is either "yes" or "no." It estimates the probability that the dependent variable equals a certain value (usually 1), using a logistic function (a sigmoid, or s-shaped, curve).
 
 To run a logistic regression in R, use the `glm()` function with `family = binomial`. This fits a generalized linear model where the dependent variable is binary (0/1). You should check assumptions, multicollinearity, and goodness-of-fit afterward. Below is the basic structure in an example:
 
