@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.6.42">
+<meta name="generator" content="quarto-1.6.43">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -35,7 +35,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-d4d76bf8491c20bad77d141916dc28e1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="site_libs/bootstrap/bootstrap-3cc593b0fe7176a36e01115e2f6d506d.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
@@ -119,8 +119,18 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#data-infrastructure" id="toc-data-infrastructure" class="nav-link active" data-scroll-target="#data-infrastructure">1. <strong>Data Infrastructure</strong></a></li>
+  <li><a href="#ml-libraries-and-frameworks" id="toc-ml-libraries-and-frameworks" class="nav-link" data-scroll-target="#ml-libraries-and-frameworks">2. <strong>ML Libraries and Frameworks</strong></a></li>
+  <li><a href="#compute-power" id="toc-compute-power" class="nav-link" data-scroll-target="#compute-power">3. <strong>Compute Power</strong></a></li>
+  <li><a href="#where-is-ml-useful" id="toc-where-is-ml-useful" class="nav-link" data-scroll-target="#where-is-ml-useful">💡 Where Is ML Useful?</a></li>
+  <li><a href="#key-takeaway" id="toc-key-takeaway" class="nav-link" data-scroll-target="#key-takeaway">🎯 Key Takeaway</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -154,9 +164,73 @@ ul.task-list li input[type="checkbox"] {
 <p>If you want a computer to tell you what marketing might work best, then you can give it the data from several customers. This is very common in today’s society and used in almost every industry.</p>
 <p>Over time, the computer “learns” what features are distinct from customer to customer and labels the customer by what marketing could work best and result in higher sales.</p>
 <p>Both of these instances are kind of like teaching by example rather than instruction.</p>
-<p>Here is another example…</p>
+<p>Machine learning works because <strong>data contains patterns</strong>, and if you can model those patterns mathematically, you can generalize to new, unseen data.</p>
+<p>It works <em>well</em> when:</p>
+<ul>
+<li><p>You have enough <strong>relevant data</strong> (examples)</p></li>
+<li><p>The patterns in the data are <strong>learnable</strong> (not random noise)</p></li>
+<li><p>You choose a <strong>suitable model</strong> (algorithm) and tune it correctly</p></li>
+</ul>
+<p>In math terms, it’s about finding a function f(x) approximates y, where:</p>
+<ul>
+<li><p>x = input (e.g., house features)</p></li>
+<li><p>y = output (e.g., price)</p></li>
+<li><p>f = learned mapping from input to output</p></li>
+</ul>
+<p>To apply machine learning, you usually need three things:</p>
+<section id="data-infrastructure" class="level3">
+<h3 class="anchored" data-anchor-id="data-infrastructure">1. <strong>Data Infrastructure</strong></h3>
+<ul>
+<li>Tools to <strong>collect, store, and clean data</strong> (e.g., databases, cloud storage, data pipelines)</li>
+</ul>
+<pre><code>Examples: SQL, Apache Spark, pandas (for local data)</code></pre>
+</section>
+<section id="ml-libraries-and-frameworks" class="level3">
+<h3 class="anchored" data-anchor-id="ml-libraries-and-frameworks">2. <strong>ML Libraries and Frameworks</strong></h3>
+<ul>
+<li><p>Tools to <strong>build models</strong>, train them, and evaluate performance</p></li>
+<li><p>Popular ones:</p></li>
+</ul>
+<pre><code>-   🧠 **Scikit-learn** – easy and great for beginners
+
+-   🔥 **PyTorch / TensorFlow** – for deep learning, large-scale models
+
+-    🧪 **XGBoost / LightGBM** – fast, high-performance gradient boosting</code></pre>
+</section>
+<section id="compute-power" class="level3">
+<h3 class="anchored" data-anchor-id="compute-power">3. <strong>Compute Power</strong></h3>
+<ul>
+<li>Especially for large models like neural networks</li>
+</ul>
+<pre><code>You can use:
+
+-    CPUs (fine for small tasks)
+
+-    GPUs (much faster for deep learning)
+
+-   Cloud platforms like AWS, Google Cloud, or Azure</code></pre>
+</section>
+<section id="where-is-ml-useful" class="level2">
+<h2 class="anchored" data-anchor-id="where-is-ml-useful">💡 Where Is ML Useful?</h2>
+<p>Machine learning is used <strong>everywhere</strong> now. Some broad categories:</p>
+<ul>
+<li><p><strong>Regression</strong> – predicting prices, forecasting demand</p></li>
+<li><p><strong>Classification</strong> – spam detection, disease diagnosis, fraud detection</p></li>
+<li><p><strong>Clustering</strong> – segmenting customers, grouping similar documents</p></li>
+<li><p><strong>Recommendation</strong> – Netflix, YouTube, Amazon suggestions</p></li>
+<li><p><strong>Computer Vision</strong> – self-driving cars, facial recognition</p></li>
+<li><p><strong>Natural Language Processing</strong> – chatbots, translation, sentiment analysis</p></li>
+</ul>
+</section>
+<section id="key-takeaway" class="level2">
+<h2 class="anchored" data-anchor-id="key-takeaway">🎯 Key Takeaway</h2>
+<blockquote class="blockquote">
+<p><strong>Machine learning is about using data to make smarter decisions!</strong></p>
+<p>With the right tools and data, we can teach computers to help us in ways that were once impossible — from personalized healthcare to AI-powered assistants.</p>
+</blockquote>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
