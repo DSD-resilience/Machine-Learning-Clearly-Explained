@@ -31,7 +31,11 @@ This is a statistical method used to model the relationship between a binary dep
 
 To run a logistic regression in R, use the `glm()` function with an argument of `family = binomial`. This fits a generalized linear model where the dependent variable is binary (0/1). You should check assumptions, multicollinearity, and goodness-of-fit afterward. Below is the basic structure in an example:
 
-**Naive Bayes**
+**Naive Bayes (N-B)**
+
+N-B is a probabilistic machine learning algorithm based on Bayes’ Theorem. It's particularly used for classification tasks, and it's called “naive” because it assumes independence between features — which is rarely true in practice, but surprisingly effective in many cases.
+
+For example, in spam detection, N-B would assume that the presence of the word “free” is independent of “money” — given the email is spam. Not usually true, but this simplifies the math **a lot**.
 
 Support Vector Machines
 
