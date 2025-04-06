@@ -160,7 +160,9 @@ ul.task-list li input[type="checkbox"] {
 <p><strong>Logistic Regression</strong></p>
 <p>This is a statistical method used to model the relationship between a binary dependent variable and one or more independent variables. An answer is either “yes” or “no.” It estimates the probability that the dependent variable equals a certain value (usually 1), using a logistic function (a sigmoid, or s-shaped, curve).</p>
 <p>To run a logistic regression in R, use the <code>glm()</code> function with an argument of <code>family = binomial</code>. This fits a generalized linear model where the dependent variable is binary (0/1). You should check assumptions, multicollinearity, and goodness-of-fit afterward. Below is the basic structure in an example:</p>
-<p><strong>Naive Bayes</strong></p>
+<p><strong>Naive Bayes (N-B)</strong></p>
+<p>N-B is a probabilistic machine learning algorithm based on Bayes’ Theorem. It’s particularly used for classification tasks, and it’s called “naive” because it assumes independence between features — which is rarely true in practice, but surprisingly effective in many cases.</p>
+<p>For example, in spam detection, N-B would assume that the presence of the word “free” is independent of “money” — given the email is spam. Not usually true, but this simplifies the math <strong>a lot</strong>.</p>
 <p>Support Vector Machines</p>
 <p>Random Forests</p>
 <p>Neural Networks</p>
