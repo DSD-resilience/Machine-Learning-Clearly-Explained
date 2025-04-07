@@ -4,3 +4,41 @@ format: html
 ---
 
 Classification models are used when you know the categories, or labels, that you wish to use on your data. Both classification and regression are forms of **supervised** learning.
+
+Supervised learning is a type of machine learning where the model learns from a labeled data set—that is, data that has both **input features (X)** and known **target outputs (Y)**. The goal is to learn a function that maps inputs to outputs so it can make predictions on new, unseen data.
+
+A practical example of supervised learning and classification is spam email detection. We want to automatically classify incoming emails as **"spam"** or **"not spam."** The **inputs (features) c**ould include:
+
+-   Presence of certain keywords (like "free", "winner", etc.)
+
+-   Sender's email address
+
+-   Number of links or attachments
+
+-   Email length
+
+-   Frequency of punctuation like "!!!" or "\$\$\$"
+
+These act like clues to let the computer know that a specific email could be spam. You can understand how this is modeled on human thinking. We also look for patterns that will lead us to a conclusion.
+
+The **outputs (labels)** in this case would be `1` for spam, and `0` for not spam (aka ham). If you have email a classification model is likely at work on your account, separating the "spam" from the "ham."
+
+Common supervised learning models used for classifying data are:
+
+**Logistic Regression**
+
+This is a statistical method used to model the relationship between a binary dependent variable and one or more independent variables. An answer is either "yes" or "no." It estimates the probability that the dependent variable equals a certain value (usually 1), using a logistic function (a sigmoid, or s-shaped, curve).
+
+To run a logistic regression in R, use the `glm()` function with an argument of `family = binomial`. This fits a generalized linear model where the dependent variable is binary (0/1). You should check assumptions, multicollinearity, and goodness-of-fit afterward. Below is the basic structure in an example:
+
+**Naive Bayes (N-B)**
+
+N-B is a probabilistic machine learning algorithm based on Bayes’ Theorem. It's particularly used for classification tasks, and it's called “naive” because it assumes independence between features — which is rarely true in practice, but surprisingly effective in many cases.
+
+For example, in spam detection, N-B would assume that the presence of the word “free” is independent of “money” — given the email is spam. Not usually true, but this simplifies the math **a lot**.
+
+Support Vector Machines
+
+Random Forests
+
+Neural Networks

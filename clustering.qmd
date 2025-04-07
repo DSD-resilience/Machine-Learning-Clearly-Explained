@@ -4,3 +4,25 @@ format: html
 ---
 
 Clustering is used when you want to classify your data but you are not sure how. Clustering is a form of **unsupervised** learning.
+
+One type of popular clustering model is **K-means** clustering.
+
+**Assumes**: Spherical clusters of equal variance.
+
+**Strengths**: Fast, simple, works well with large datasets.
+
+**Limitations**: Requires the number of clusters (`k`) to be specified; not great with non-spherical or varying-density clusters.
+
+R package: \[`stats::kmeans()`\], also `cluster` and `factoextra` for visualization.
+
+Another popular type of clustering model is **Hierarchical** clustering.
+
+**Types**: Agglomerative (bottom-up) and divisive (top-down).
+
+**Output**: Dendrogram (tree of clusters).
+
+**Strengths**: Does not require predefined `k`; good for nested structures.
+
+**Limitations**: Computationally expensive for large datasets.
+
+R package: `stats::hclust()`, `dendextend`, `cluster`.

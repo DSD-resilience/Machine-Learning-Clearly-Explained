@@ -1,102 +1,92 @@
 ---
-title: "Linear and Logistic Regression"
+title: "Introduction"
 ---
 
-**Regression** is a way to find a relationship between variables and use that relationship to make predictions.
+Machine learning is one of the most important developments in computer science. It has driven modern progress in many ways, through improving medical research, construction methods, urban planning, and most any field that you can name that generates and consumes data.
+
+Fundamentally, **it is a way for computers to learn from data and improve at tasks without being explicitly told what to do step by step.**
+
+Instead of writing rules by hand, we give the computer a lot of examples, and it figures out patterns or rules on its own.
 
 For example:
 
--   If you know the **size of a house**, regression can help predict its **price**.
+If you want a computer to recognize pictures of cats, instead of coding all the features of a cat (like fur, ears, eyes, tail...), you show it many labeled pictures of cats and non-cats.
 
--   If you know a **student’s study hours**, regression can estimate their **exam score**.
+Over time, it "learns" what features make a cat picture likely, based on those examples.
 
-It’s like drawing a **trend line** through data points to see how one thing changes with another. 📈😊
+But that is not all. It depends on what models you utilize, but a computer doesn't even need labels to recognize patterns in your data.
 
-**Linear regression** is one of the most useful and popular forecasting tools available. Quite simply, it assumes that there is a linear relationship between one variable and a second variable. If you plot data for these two variables on a graph, you can draw a line through it and make a decent guess about what the second variable will be depending on the value of the first variable.
+If you want a computer to tell you what marketing might work best, then you can give it the data from several customers. This is very common in today's society and used in almost every industry.
 
-To learn more technical aspects of linear regression, visit [the Wikipedia entry](https://en.wikipedia.org/wiki/Linear_regression){.uri}.
+Over time, the computer "learns" what features are distinct from customer to customer and labels the customer by what marketing could work best and result in higher sales.
 
-An initial model for "simple linear regression" is easy to build in R. This may not seem that impressive on first blush, but we'll examine its technical output shortly.
+Both of these instances are kind of like teaching by example rather than instruction.
 
-Load the data set and build a linear model:
+Machine learning works because **data contains patterns**, and if you can model those patterns mathematically, you can generalize to new, unseen data.
 
-```{r}
-#| message: false
-#| warning: false
-#| output: false
-# Load dataset
-data(iris)
+It works *well* when:
 
-# Fit linear regression model
-model <- lm(Sepal.Length ~ Petal.Length, data = iris)
-```
+-   You have enough **relevant data** (examples)
 
-Load the necessary library for the chart:
+-   The patterns in the data are **learnable** (not random noise)
 
-```{r}
-#| message: false
-#| warning: false
-#| output: false
-# ggplot2 makes great charts!
-install.packages('ggplot2')
-library(ggplot2)
-```
+-   You choose a **suitable model** (algorithm) and tune it correctly
 
-Now build the chart that displays the relationship between variables:
+In math terms, it’s about finding a function f(x) approximates y, where:
 
-```{r}
-#| message: false
-#| warning: false
-#| output: true
-# Create scatter plot with regression line
-ggplot(iris, aes(x = Petal.Length, y = Sepal.Length)) +
-  geom_point(color = "blue", alpha = 0.6) +  # Scatter points
-  geom_smooth(method = "lm", color = "red", fill = "pink", se = TRUE) +  # Regression line
-  labs(title = "Relationship Between Sepal Length and Petal Length",
-       subtitle = "A simple linear regression model",
-       x = "Petal Length",
-       y = "Sepal Length") +
-  theme_minimal()
-```
+-   x = input (e.g., house features)
 
-The variable Petal Length is on the x-axis (horizontal) and is called the "independent" variable. The variable Sepal Length is on the y-axis (vertical) and is called the "dependent" variable. As you might guess, the objective of this "model" (a simulation of reality) is to see how much influence Petal Length may have on Sepal Length. We don't know if they are related at all at first, but by examining the data we can tease out that perhaps we can draw a straight line through the data that explains a possible relationship. In this case we see that, generally speaking, the longer the petal length is on an iris, the longer sepal length will be. Sometimes these relationships are intuitive, such as a taller person being heavier than a short person, but not always. Generally, we use data science to look for non-obvious relationships and performing a linear regression is just one tool.
+-   y = output (e.g., price)
 
-Now that we have an intuitive grasp on the subject from the visualization, let's look at the statistical facts about this model.
+-   f = learned mapping from input to output
 
-```{r}
-#| message: false
-#| warning: false
-#| output: false
-# Display model summary
-summary(model)
-```
+To apply machine learning, you usually need three things:
 
-**Logistic regression** is also quite useful. It is a statistical method used for binary classification, where the outcome variable has two possible values (e.g., 0 or 1, yes or no, true or false). It models the probability of one class occurring using the logistic (sigmoid) function, which maps any real-valued input to a value between 0 and 1.
+### 1. **Data Infrastructure**
 
-Logistic regression is commonly used in fields like medicine, finance, and social sciences for tasks such as disease prediction, credit scoring, and customer retention analysis.
+-   Tools to **collect, store, and clean data** (e.g., databases, cloud storage, data pipelines)
+-   Examples include the use of SQL, Apache Spark and Pandas (for local data)
 
-Let's predict whether a car has **automatic (am = 0) or manual (am = 1) transmission** based on its **miles per gallon (mpg)**:
+### 2. **ML Libraries and Frameworks**
 
-```{r}
-# Load dataset
-data(mtcars)
+-   Tools to **build models**, train them, and evaluate performance
 
-# Convert 'am' to a factor (0 = automatic, 1 = manual)
-mtcars$am <- as.factor(mtcars$am)
+-   Popular methods are:
 
-# Fit a logistic regression model
-model <- glm(am ~ mpg, data = mtcars, family = binomial)
+    🧠 Scikit-learn – easy and great for beginners
 
-# Summary of the model
-summary(model)
-```
+    🔥 PyTorch / TensorFlow – for deep learning, large-scale models
 
--   The model predicts whether a car is **manual (1) or automatic (0)** based on `mpg`.
+    🧪 XGBoost / LightGBM – fast, high-performance gradient boosting
 
-<!-- -->
+### 3. **Compute Power**
 
--   The coefficient of `mpg` tells us whether increasing `mpg` makes a car more likely to have a manual transmission.
+-   This is especially for large models like neural networks
+-   You can use:
+    -   CPUs (fine for small tasks)
 
-<!-- -->
+    -   GPUs (much faster for deep learning)
 
--   The output is in **log-odds**, but we can convert it to probabilities.
+    -   Cloud platforms like AWS, Google Cloud, or Azure
+
+## 💡 Where Is ML Useful?
+
+Machine learning is used **everywhere** now. Some broad categories:
+
+-   **Regression** – predicting prices, forecasting demand
+
+-   **Classification** – spam detection, disease diagnosis, fraud detection
+
+-   **Clustering** – segmenting customers, grouping similar documents
+
+-   **Recommendation** – Netflix, YouTube, Amazon suggestions
+
+-   **Computer Vision** – self-driving cars, facial recognition
+
+-   **Natural Language Processing** – chatbots, translation, sentiment analysis
+
+## 🎯 Key Takeaway
+
+> **Machine learning is about using data to make smarter decisions!**
+>
+> With the right tools and data, we can teach computers to help us in ways that were once impossible — from personalized healthcare to AI-powered assistants.
