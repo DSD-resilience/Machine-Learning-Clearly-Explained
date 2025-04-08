@@ -17,7 +17,7 @@ website:
 
 format:
   html:
-    theme: minty
+    theme: litera
     css: styles.css
     toc: true
 
