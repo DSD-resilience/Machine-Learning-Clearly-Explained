@@ -39,6 +39,10 @@ For example, in spam detection, N-B would assume that the presence of the word â
 
 **Support Vector Machines**
 
-Random Forests
+SVM is a supervised machine learning algorithm primarily used for classification, but it can also handle regression tasks. This means that
+
+At its core, an SVM tries to find the best boundary (hyperplane) that separates data points of different classes in the feature space. SVM tries to **maximize the margin** between data points of different classes. The margin is the distance between the hyperplane and the **nearest points from each class**, which are called **support vectors**.
+
+**Random Forests**
 
 Neural Networks
