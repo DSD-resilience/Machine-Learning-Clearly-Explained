@@ -50,6 +50,9 @@ Noise Point: Not a core or border point.
 Let's do an example of DBSCAN. The `iris` data set is often used, even though it is already labeled.
 
 ```{r}
+#| message: false
+#| warning: false
+#| output: true
 # Load necessary packages
 install.packages("dbscan")
 install.packages("ggplot2")
@@ -75,6 +78,9 @@ abline(h = 0.6, lty = 2)  # use your visual judgment here for eps
 This plot helps you choose a good `eps` value. You're looking for the "elbow" of the curve.
 
 ```{r}
+#| message: false
+#| warning: false
+#| output: true
 # Run DBSCAN with eps and minPts
 db <- dbscan(iris_scaled, eps = 0.6, minPts = 4)
 
