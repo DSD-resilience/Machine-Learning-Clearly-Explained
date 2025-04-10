@@ -156,6 +156,15 @@ ul.task-list li input[type="checkbox"] {
 <p><strong>Strengths</strong>: Does not require predefined <code>k</code>; good for nested structures.</p>
 <p><strong>Limitations</strong>: Computationally expensive for large datasets.</p>
 <p>R package: <code>stats::hclust()</code>, <code>dendextend</code>, <code>cluster</code>.</p>
+<p>Still another popular type of clustering mode is <strong>DBSCAN (Density-Based Spatial Clustering of Applications with Noise)</strong> clustering.</p>
+<p>✅ Why is it popular? No need to specify the number of clusters in advance (unlike K-means).</p>
+<p>Can find arbitrarily shaped clusters, not just spherical ones.</p>
+<p>Robust to outliers — it can identify noise points as a separate class.</p>
+<p>🧠 Core Concepts ε (epsilon): Radius around a point to look for neighboring points.</p>
+<p>MinPts: Minimum number of points within ε radius to form a dense region.</p>
+<p>Core Point: Has at least MinPts within ε.</p>
+<p>Border Point: Within ε of a core point but has fewer than MinPts.</p>
+<p>Noise Point: Not a core or border point.</p>
 
 
 
