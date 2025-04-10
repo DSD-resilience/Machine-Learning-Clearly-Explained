@@ -26,3 +26,24 @@ Another popular type of clustering model is **Hierarchical** clustering.
 **Limitations**: Computationally expensive for large datasets.
 
 R package: `stats::hclust()`, `dendextend`, `cluster`.
+
+Still another popular type of clustering mode is **DBSCAN (Density-Based Spatial Clustering of Applications with Noise)** clustering.
+
+✅ Why is it popular?
+No need to specify the number of clusters in advance (unlike K-means).
+
+Can find arbitrarily shaped clusters, not just spherical ones.
+
+Robust to outliers — it can identify noise points as a separate class.
+
+🧠 Core Concepts
+ε (epsilon): Radius around a point to look for neighboring points.
+
+MinPts: Minimum number of points within ε radius to form a dense region.
+
+Core Point: Has at least MinPts within ε.
+
+Border Point: Within ε of a core point but has fewer than MinPts.
+
+Noise Point: Not a core or border point.
+
