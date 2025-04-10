@@ -30,14 +30,14 @@ R package: `stats::hclust()`, `dendextend`, `cluster`.
 Still another popular type of clustering mode is **DBSCAN (Density-Based Spatial Clustering of Applications with Noise)** clustering.
 
 ✅ Why is it popular?
-No need to specify the number of clusters in advance (unlike K-means).
 
-Can find arbitrarily shaped clusters, not just spherical ones.
+-   No need to specify the number of clusters in advance (unlike K-means).
 
-Robust to outliers — it can identify noise points as a separate class.
+-   Can find arbitrarily shaped clusters, not just spherical ones.
 
-🧠 Core Concepts
-ε (epsilon): Radius around a point to look for neighboring points.
+-   Robust to outliers — it can identify noise points as a separate class.
+
+Core Concepts ε (epsilon): Radius around a point to look for neighboring points.
 
 MinPts: Minimum number of points within ε radius to form a dense region.
 
@@ -47,3 +47,56 @@ Border Point: Within ε of a core point but has fewer than MinPts.
 
 Noise Point: Not a core or border point.
 
+Let's do an example of DBSCAN. The `iris` data set is often used, even though it is already labeled.
+
+```{r}
+# Load necessary packages
+install.packages("dbscan")
+install.packages("ggplot2")
+library(dbscan)
+library(ggplot2)
+
+# Load the iris dataset
+data(iris)
+head(iris)
+
+# Use only the numeric features (remove the species label)
+iris_data <- iris[, 1:4]
+
+# Scale the data (DBSCAN is sensitive to scale)
+iris_scaled <- scale(iris_data)
+
+# Plot kNN distances to estimate a good value for eps
+kNNdistplot(iris_scaled, k = 4)
+abline(h = 0.6, lty = 2)  # use your visual judgment here for eps
+
+```
+
+This plot helps you choose a good `eps` value. You're looking for the "elbow" of the curve.
+
+```{r}
+# Run DBSCAN with eps and minPts
+db <- dbscan(iris_scaled, eps = 0.6, minPts = 4)
+
+# Check clustering results
+db$cluster  # Cluster labels (0 means noise)
+
+# Add cluster labels to the original data
+iris$Cluster <- as.factor(db$cluster)
+
+# Visualize the clusters (using first two PCA components for clarity)
+pca <- prcomp(iris_scaled)
+iris_pca <- data.frame(pca$x[,1:2], Cluster = iris$Cluster)
+
+ggplot(iris_pca, aes(PC1, PC2, color = Cluster)) +
+  geom_point(size = 2) +
+  labs(title = "DBSCAN Clustering on Iris Dataset (PCA Projection)")
+```
+
+### 📝 Notes
+
+**`eps`** (epsilon): max distance between two samples to be considered neighbors.
+
+**`minPts`**: minimum number of points required to form a dense region.
+
+The elbow/k-distance plot helps you pick a good `eps`.
