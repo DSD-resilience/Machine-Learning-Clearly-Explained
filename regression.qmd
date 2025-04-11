@@ -27,6 +27,7 @@ Load the data set and build a linear model:
 # Load dataset
 data(iris)
 
+# Iris is a common data solution for testing models because of its relative simplicity
 # Fit linear regression model
 model <- lm(Sepal.Length ~ Petal.Length, data = iris)
 ```
