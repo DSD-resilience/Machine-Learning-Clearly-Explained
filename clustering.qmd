@@ -7,7 +7,11 @@ Clustering is used when you want to classify your data but you are not sure how.
 
 One of the most popular types of clustering models is **K-means** clustering.
 
-**Assumes**: Spherical clusters of equal variance.
+**Assumes**: Spherical clusters of equal variance. K-Means tends to group data into clusters where each cluster is roughly circular (in 2D) or spherical (in higher dimensions) around its centroid.
+
+This is because K-Means uses Euclidean distance to assign points to the nearest cluster center — and all points that are equidistant to a center form a hypersphere.
+
+📌 Key point- this makes clusters are shaped like blobs around the center — not elongated or skewed.
 
 **Strengths**: Fast, simple, works well with large datasets.
 
@@ -31,7 +35,7 @@ Still another popular type of clustering mode is **DBSCAN (Density-Based Spatial
 
 ✅ Why is it popular?
 
--   No need to specify the number of clusters in advance (unlike K-means).
+-   There is no need to specify the number of clusters in advance (unlike K-means).
 
 -   Can find arbitrarily shaped clusters, not just spherical ones.
 
