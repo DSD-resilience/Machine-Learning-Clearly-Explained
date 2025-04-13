@@ -8,6 +8,8 @@ Fundamentally, **it is a way for computers to learn from data and improve at tas
 
 Instead of writing rules by hand, we give the computer a lot of examples, and it figures out patterns or rules on its own.
 
+![Lots of data equals smart robots.](images/ml-robot.png)
+
 For example:
 
 If you want a computer to recognize pictures of cats, instead of coding all the features of a cat (like fur, ears, eyes, tail...), you show it many labeled pictures of cats and non-cats.
