@@ -63,7 +63,7 @@ install.packages("ggplot2")
 library(dbscan)
 library(ggplot2)
 
-# Load the iris dataset
+# Load the iris dataset and check out the first six observations
 data(iris)
 head(iris)
 
