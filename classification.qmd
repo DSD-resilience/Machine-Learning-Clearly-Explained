@@ -47,4 +47,16 @@ At its core, an SVM tries to find the best boundary (hyperplane) that separates 
 
 **Random Forests**
 
-Neural Networks
+These are essentially a collection of decision trees—hence the name "forest." Each tree is trained on a slightly different subset of the data, and their outputs are aggregated to make the final prediction.
+
+For classification, the forest outputs the class that has the majority vote among the trees.
+
+For regression, it averages the predictions of all the trees.
+
+But what about it is "random?"
+
+1.  **Bootstrap sampling (Bagging)**: Each tree is trained on a **random sample** (with replacement) of the training data.
+
+2.  **Random feature selection**: When splitting nodes, each tree considers only a **random subset of features** instead of all features. This adds diversity and reduces correlation among trees.
+
+**Neural Networks**
