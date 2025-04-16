@@ -168,7 +168,15 @@ ul.task-list li input[type="checkbox"] {
 <p>SVM is a supervised machine learning algorithm primarily used for classification, but it can also handle regression tasks. This means that</p>
 <p>At its core, an SVM tries to find the best boundary (hyperplane) that separates data points of different classes in the feature space. SVM tries to <strong>maximize the margin</strong> between data points of different classes. The margin is the distance between the hyperplane and the <strong>nearest points from each class</strong>, which are called <strong>support vectors</strong>.</p>
 <p><strong>Random Forests</strong></p>
-<p>Neural Networks</p>
+<p>These are essentially a collection of decision trees—hence the name “forest.” Each tree is trained on a slightly different subset of the data, and their outputs are aggregated to make the final prediction.</p>
+<p>For classification, the forest outputs the class that has the majority vote among the trees.</p>
+<p>For regression, it averages the predictions of all the trees.</p>
+<p>But what about it is “random?”</p>
+<ol type="1">
+<li><p><strong>Bootstrap sampling (Bagging)</strong>: Each tree is trained on a <strong>random sample</strong> (with replacement) of the training data.</p></li>
+<li><p><strong>Random feature selection</strong>: When splitting nodes, each tree considers only a <strong>random subset of features</strong> instead of all features. This adds diversity and reduces correlation among trees.</p></li>
+</ol>
+<p><strong>Neural Networks</strong></p>
 
 
 
