@@ -73,7 +73,7 @@ To apply machine learning, you usually need three things:
 
 ## 💡 Where Is ML Useful?
 
-Machine learning is used **everywhere** now. Some broad categories:
+Machine learning is used **almost everywhere** you can collect data and automatize processes. Even something as human as farming is going to rely on better weather forecasting and production reports. Here are some broad categories:
 
 -   **Regression** – predicting prices, forecasting demand
 
