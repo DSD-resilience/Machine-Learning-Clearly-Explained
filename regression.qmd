@@ -101,3 +101,5 @@ summary(model)
 <!-- -->
 
 -   The output is in **log-odds**, but we can convert it to probabilities.
+
+Here is another example.
