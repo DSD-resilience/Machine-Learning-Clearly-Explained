@@ -102,4 +102,55 @@ summary(model)
 
 -   The output is in **log-odds**, but we can convert it to probabilities.
 
-Here is another example.
+In R 4.5.0, you can use the **`palmerpenguins`** dataset, which is a built-in dataset (after loading the appropriate package), to perform regression analysis. Here's a simple example using **linear regression** to predict penguin **body mass** from **flipper length**.
+
+First, we'll make sure to have the `palmerpenguins` package installed and loaded, just in case someone has not updated to R4.5.0:
+
+```{r}
+# Install if you haven't already
+install.packages("palmerpenguins")
+
+# Load the package
+library(palmerpenguins)
+```
+
+Then we would build the model:
+
+```{r}
+
+# Load the data
+data("penguins")
+
+# Remove rows with missing values
+penguins_clean <- na.omit(penguins)
+
+# Fit a linear regression model: body_mass_g ~ flipper_length_mm
+model <- lm(body_mass_g ~ flipper_length_mm, data = penguins_clean)
+
+# Show summary of the model
+summary(model)
+```
+
+### Explanation:
+
+-   `lm()` fits a linear regression model.
+
+-   `body_mass_g` is the response variable.
+
+-   `flipper_length_mm` is the predictor.
+
+What the model demonstrates is that for every 1 mm increase in flipper length, the predicted body mass increases by approximately 58.4 grams.
+
+Here is how you could visualize the model:
+
+```{r}
+# Plot
+plot(penguins_clean$flipper_length_mm, penguins_clean$body_mass_g,
+     main = "Body Mass vs Flipper Length",
+     xlab = "Flipper Length (mm)",
+     ylab = "Body Mass (g)",
+     pch = 19, col = "steelblue")
+
+# Add regression line
+abline(model, col = "red", lwd = 2)
+```
