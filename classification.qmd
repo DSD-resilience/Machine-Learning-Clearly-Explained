@@ -60,3 +60,7 @@ But what about it is "random?"
 2.  **Random feature selection**: When splitting nodes, each tree considers only a **random subset of features** instead of all features. This adds diversity and reduces correlation among trees.
 
 **Neural Networks**
+
+A Neural Networks (NN) machine learning model inspired by how the human brain works. It is composed of layers of interconnected nodes (called **neurons**) that can learn to recognize patterns in data.
+
+In essence, a neural network is a **function approximator** that maps input data to an output (like predicting if a person has diabetes or classifying an image).
