@@ -39,6 +39,70 @@ N-B is a probabilistic machine learning algorithm based on Bayes’ Theorem. It'
 
 For example, in spam detection, N-B would assume that the presence of the word “free” is independent of “money” — given the email is spam. Not usually true, but this simplifies the math **a lot**.
 
+Sure! Here's a simple example of implementing **Naive Bayes** in **R** using the built-in `iris` dataset and the `e1071` package.
+
+------------------------------------------------------------------------
+
+### 📦 Step 1: Install and load the required package
+
+``` r
+install.packages("e1071")  # Only run this once
+library(e1071)
+```
+
+------------------------------------------------------------------------
+
+### 🌸 Step 2: Prepare the data
+
+We’ll use the famous `iris` dataset, which classifies flowers into three species.
+
+``` r
+data(iris)
+
+# Let's split the data into training and test sets
+set.seed(123)  # For reproducibility
+indexes <- sample(1:nrow(iris), 0.7 * nrow(iris))
+train_data <- iris[indexes, ]
+test_data <- iris[-indexes, ]
+```
+
+------------------------------------------------------------------------
+
+### 🧠 Step 3: Train the Naive Bayes model
+
+``` r
+model <- naiveBayes(Species ~ ., data = train_data)
+print(model)
+```
+
+------------------------------------------------------------------------
+
+### 🧪 Step 4: Make predictions
+
+``` r
+predictions <- predict(model, test_data)
+```
+
+------------------------------------------------------------------------
+
+### 📊 Step 5: Evaluate the model
+
+``` r
+confusion_matrix <- table(Predicted = predictions, Actual = test_data$Species)
+print(confusion_matrix)
+
+accuracy <- sum(diag(confusion_matrix)) / sum(confusion_matrix)
+cat("Accuracy:", round(accuracy * 100, 2), "%\n")
+```
+
+------------------------------------------------------------------------
+
+This is a basic classification task using Naive Bayes. You can explore further with different datasets, feature selection, and using `caret` or `mlr3` for more structured workflows.
+
+Would you like an example using text data (like spam detection), or is this enough for now?
+
+Get \$60 free credit to access GPT-4, Claude 3, Gemini, Grok & more — just \$5.99/month (billed annually) or \$6.99 billed monthly: <https://responxe.com/landing/ref/REF_M9C0953>
+
 **Support Vector Machines**
 
 SVM is a supervised machine learning algorithm primarily used for classification, but it can also handle regression tasks. This means that
