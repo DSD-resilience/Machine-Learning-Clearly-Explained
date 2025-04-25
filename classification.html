@@ -20,6 +20,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -119,8 +153,18 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#step-1-install-and-load-the-required-package" id="toc-step-1-install-and-load-the-required-package" class="nav-link active" data-scroll-target="#step-1-install-and-load-the-required-package">📦 Step 1: Install and load the required package</a></li>
+  <li><a href="#step-2-prepare-the-data" id="toc-step-2-prepare-the-data" class="nav-link" data-scroll-target="#step-2-prepare-the-data">🌸 Step 2: Prepare the data</a></li>
+  <li><a href="#step-3-train-the-naive-bayes-model" id="toc-step-3-train-the-naive-bayes-model" class="nav-link" data-scroll-target="#step-3-train-the-naive-bayes-model">🧠 Step 3: Train the Naive Bayes model</a></li>
+  <li><a href="#step-4-make-predictions" id="toc-step-4-make-predictions" class="nav-link" data-scroll-target="#step-4-make-predictions">🧪 Step 4: Make predictions</a></li>
+  <li><a href="#step-5-evaluate-the-model" id="toc-step-5-evaluate-the-model" class="nav-link" data-scroll-target="#step-5-evaluate-the-model">📊 Step 5: Evaluate the model</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -164,6 +208,48 @@ ul.task-list li input[type="checkbox"] {
 <p><strong>Naive Bayes (N-B)</strong></p>
 <p>N-B is a probabilistic machine learning algorithm based on Bayes’ Theorem. It’s particularly used for classification tasks, and it’s called “naive” because it assumes independence between features — which is rarely true in practice, but surprisingly effective in many cases.</p>
 <p>For example, in spam detection, N-B would assume that the presence of the word “free” is independent of “money” — given the email is spam. Not usually true, but this simplifies the math <strong>a lot</strong>.</p>
+<p>Sure! Here’s a simple example of implementing <strong>Naive Bayes</strong> in <strong>R</strong> using the built-in <code>iris</code> dataset and the <code>e1071</code> package.</p>
+<hr>
+<section id="step-1-install-and-load-the-required-package" class="level3">
+<h3 class="anchored" data-anchor-id="step-1-install-and-load-the-required-package">📦 Step 1: Install and load the required package</h3>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"e1071"</span>)  <span class="co"># Only run this once</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(e1071)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<hr>
+</section>
+<section id="step-2-prepare-the-data" class="level3">
+<h3 class="anchored" data-anchor-id="step-2-prepare-the-data">🌸 Step 2: Prepare the data</h3>
+<p>We’ll use the famous <code>iris</code> dataset, which classifies flowers into three species.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(iris)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Let's split the data into training and test sets</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)  <span class="co"># For reproducibility</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>indexes <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(iris), <span class="fl">0.7</span> <span class="sc">*</span> <span class="fu">nrow</span>(iris))</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>train_data <span class="ot">&lt;-</span> iris[indexes, ]</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>test_data <span class="ot">&lt;-</span> iris[<span class="sc">-</span>indexes, ]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<hr>
+</section>
+<section id="step-3-train-the-naive-bayes-model" class="level3">
+<h3 class="anchored" data-anchor-id="step-3-train-the-naive-bayes-model">🧠 Step 3: Train the Naive Bayes model</h3>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="fu">naiveBayes</span>(Species <span class="sc">~</span> ., <span class="at">data =</span> train_data)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(model)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<hr>
+</section>
+<section id="step-4-make-predictions" class="level3">
+<h3 class="anchored" data-anchor-id="step-4-make-predictions">🧪 Step 4: Make predictions</h3>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>predictions <span class="ot">&lt;-</span> <span class="fu">predict</span>(model, test_data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<hr>
+</section>
+<section id="step-5-evaluate-the-model" class="level3">
+<h3 class="anchored" data-anchor-id="step-5-evaluate-the-model">📊 Step 5: Evaluate the model</h3>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>confusion_matrix <span class="ot">&lt;-</span> <span class="fu">table</span>(<span class="at">Predicted =</span> predictions, <span class="at">Actual =</span> test_data<span class="sc">$</span>Species)</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(confusion_matrix)</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>accuracy <span class="ot">&lt;-</span> <span class="fu">sum</span>(<span class="fu">diag</span>(confusion_matrix)) <span class="sc">/</span> <span class="fu">sum</span>(confusion_matrix)</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"Accuracy:"</span>, <span class="fu">round</span>(accuracy <span class="sc">*</span> <span class="dv">100</span>, <span class="dv">2</span>), <span class="st">"%</span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<hr>
+<p>This is a basic classification task using Naive Bayes. You can explore further with different datasets, feature selection, and using <code>caret</code> or <code>mlr3</code> for more structured workflows.</p>
+<p>Would you like an example using text data (like spam detection), or is this enough for now?</p>
+<p>Get $60 free credit to access GPT-4, Claude 3, Gemini, Grok &amp; more — just $5.99/month (billed annually) or $6.99 billed monthly: <a href="https://responxe.com/landing/ref/REF_M9C0953" class="uri">https://responxe.com/landing/ref/REF_M9C0953</a></p>
 <p><strong>Support Vector Machines</strong></p>
 <p>SVM is a supervised machine learning algorithm primarily used for classification, but it can also handle regression tasks. This means that</p>
 <p>At its core, an SVM tries to find the best boundary (hyperplane) that separates data points of different classes in the feature space. SVM tries to <strong>maximize the margin</strong> between data points of different classes. The margin is the distance between the hyperplane and the <strong>nearest points from each class</strong>, which are called <strong>support vectors</strong>.</p>
@@ -181,6 +267,7 @@ ul.task-list li input[type="checkbox"] {
 <p>In essence, a neural network is a <strong>function approximator</strong> that maps input data to an output (like predicting if a person has diabetes or classifying an image).</p>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
