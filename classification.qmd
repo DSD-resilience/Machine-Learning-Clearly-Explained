@@ -88,6 +88,11 @@ predictions <- predict(model, test_data)
 ### 📊 Step 5: Evaluate the model
 
 ``` r
+{r}
+#| message: false
+#| warning: false
+#| output: true
+
 confusion_matrix <- table(Predicted = predictions, Actual = test_data$Species)
 print(confusion_matrix)
 
@@ -97,7 +102,7 @@ cat("Accuracy:", round(accuracy * 100, 2), "%\n")
 
 ------------------------------------------------------------------------
 
-This is a basic classification task using Naive Bayes. You can explore further with different datasets, feature selection, and using `caret` or `mlr3` for more structured workflows.
+This is a basic classification task using Naive Bayes. You can explore further with different data sets, feature selection, and using `caret` or `mlr3` for more structured workflows.
 
 **Support Vector Machines**
 
