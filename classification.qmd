@@ -102,7 +102,9 @@ cat("Accuracy:", round(accuracy * 100, 2), "%\n")
 
 ------------------------------------------------------------------------
 
-This is a basic classification task using Naive Bayes. You can explore further with different data sets, feature selection, and using `caret` or `mlr3` for more structured workflows.
+A confusion matrix is a table that visualizes the performance of a classification model by comparing its predicted labels to the true labels. It's a valuable tool for understanding where a model might be getting confused and identifying areas for improvement
+
+You can explore Naive Bayes further with different data sets, feature selection, and using `caret` or `mlr3` for more structured workflows.
 
 **Support Vector Machines**
 
