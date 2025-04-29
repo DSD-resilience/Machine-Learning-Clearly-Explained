@@ -112,6 +112,25 @@ SVM is a supervised machine learning algorithm primarily used for classification
 
 At its core, an SVM tries to find the best boundary (hyperplane) that separates data points of different classes in the feature space. SVM tries to **maximize the margin** between data points of different classes. The margin is the distance between the hyperplane and the **nearest points from each class**, which are called **support vectors**.
 
+A SVM for R might look like this:
+
+------------------------------------------------------------------------
+
+### 📦 Step 1: Install and load the required package
+
+```{r}
+#| message: false
+#| warning: false
+#| output: truey
+# Install if not already installed
+install.packages("e1071") # Only run this once
+
+# Load the package
+library(e1071)
+```
+
+You might notice that the `e1071` package is handy. You can use it for both N-B and SVM, and thus easily build and compare the two types of models.
+
 **Random Forests**
 
 These are essentially a collection of decision trees—hence the name "forest." Each tree is trained on a slightly different subset of the data, and their outputs are aggregated to make the final prediction.
