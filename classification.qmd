@@ -145,6 +145,52 @@ But what about it is "random?"
 
 2.  **Random feature selection**: When splitting nodes, each tree considers only a **random subset of features** instead of all features. This adds diversity and reduces correlation among trees.
 
+Here's an example of using Random Forest in R using the built-in `iris` dataset. We'll use the `randomForest` package, a popular and simple way to build Random Forest models.
+
+### ✅ **Step-by-step Random Forest Example in R**
+
+#### 1. **Install and load the package**
+
+```         
+install.packages("randomForest")  # Only run once library(randomForest) 
+```
+
+#### 2. **Load the data**
+
+```         
+data(iris) head(iris) 
+```
+
+#### 3. **Split the data into training and test sets**
+
+```         
+set.seed(123)  # For reproducibility sample_index <- sample(1:nrow(iris), 0.7 * nrow(iris))  # 70% train train_data <- iris[sample_index, ] test_data <- iris[-sample_index, ] 
+```
+
+#### 4. **Train the Random Forest model**
+
+```         
+model <- randomForest(Species ~ ., data = train_data, ntree = 100, mtry = 2, importance = TRUE) print(model) 
+```
+
+#### 5. **Predict on test data**
+
+```         
+predictions <- predict(model, newdata = test_data) 
+```
+
+#### 6. **Evaluate model accuracy**
+
+```         
+confusion_matrix <- table(predicted = predictions, actual = test_data$Species) print(confusion_matrix) accuracy <- sum(diag(confusion_matrix)) / sum(confusion_matrix) cat("Accuracy:", accuracy) 
+```
+
+#### 7. **Plot feature importance**
+
+```         
+importance(model) varImpPlot(model) 
+```
+
 **Neural Networks**
 
 A Neural Networks (NN) machine learning model inspired by how the human brain works. It is composed of layers of interconnected nodes (called **neurons**) that can learn to recognize patterns in data.
