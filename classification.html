@@ -166,6 +166,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#step-4-make-predictions" id="toc-step-4-make-predictions" class="nav-link" data-scroll-target="#step-4-make-predictions">🧪 Step 4: Make predictions</a></li>
   <li><a href="#step-5-evaluate-the-model" id="toc-step-5-evaluate-the-model" class="nav-link" data-scroll-target="#step-5-evaluate-the-model">📊 Step 5: Evaluate the model</a></li>
   <li><a href="#step-1-install-and-load-the-required-package-1" id="toc-step-1-install-and-load-the-required-package-1" class="nav-link" data-scroll-target="#step-1-install-and-load-the-required-package-1">📦 Step 1: Install and load the required package</a></li>
+  <li><a href="#step-by-step-random-forest-example-in-r" id="toc-step-by-step-random-forest-example-in-r" class="nav-link" data-scroll-target="#step-by-step-random-forest-example-in-r">✅ <strong>Step-by-step Random Forest Example in R</strong></a></li>
   </ul>
 </nav>
     </div>
@@ -270,9 +271,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"e1071"</span>) <span class="co"># Only run this once</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># Downloading packages -------------------------------------------------------
-- Downloading e1071 from CRAN ...               OK [571.2 Kb in 0.96s]
-- Downloading proxy from CRAN ...               OK [169.3 Kb in 0.84s]
-Successfully downloaded 2 packages in 3.1 seconds.
+- Downloading e1071 from CRAN ...               OK [571.2 Kb in 0.67s]
+- Downloading proxy from CRAN ...               OK [169.3 Kb in 0.23s]
+Successfully downloaded 2 packages in 1.8 seconds.
 
 The following package(s) will be installed:
 - e1071 [1.7-16]
@@ -280,7 +281,7 @@ The following package(s) will be installed:
 These packages will be installed into "~/work/Machine-Learning-Clearly-Explained/Machine-Learning-Clearly-Explained/renv/library/R-4.2/x86_64-pc-linux-gnu".
 
 # Installing packages --------------------------------------------------------
-- Installing proxy ...                          OK [installed binary and cached in 0.21s]
+- Installing proxy ...                          OK [installed binary and cached in 0.2s]
 - Installing e1071 ...                          OK [installed binary and cached in 0.22s]
 Successfully installed 2 packages in 0.52 seconds.</code></pre>
 </div>
@@ -297,11 +298,43 @@ Successfully installed 2 packages in 0.52 seconds.</code></pre>
 <li><p><strong>Bootstrap sampling (Bagging)</strong>: Each tree is trained on a <strong>random sample</strong> (with replacement) of the training data.</p></li>
 <li><p><strong>Random feature selection</strong>: When splitting nodes, each tree considers only a <strong>random subset of features</strong> instead of all features. This adds diversity and reduces correlation among trees.</p></li>
 </ol>
+<p>Here’s an example of using Random Forest in R using the built-in <code>iris</code> dataset. We’ll use the <code>randomForest</code> package, a popular and simple way to build Random Forest models.</p>
+</section>
+<section id="step-by-step-random-forest-example-in-r" class="level3">
+<h3 class="anchored" data-anchor-id="step-by-step-random-forest-example-in-r">✅ <strong>Step-by-step Random Forest Example in R</strong></h3>
+<section id="install-and-load-the-package" class="level4">
+<h4 class="anchored" data-anchor-id="install-and-load-the-package">1. <strong>Install and load the package</strong></h4>
+<pre><code>install.packages("randomForest")  # Only run once library(randomForest) </code></pre>
+</section>
+<section id="load-the-data" class="level4">
+<h4 class="anchored" data-anchor-id="load-the-data">2. <strong>Load the data</strong></h4>
+<pre><code>data(iris) head(iris) </code></pre>
+</section>
+<section id="split-the-data-into-training-and-test-sets" class="level4">
+<h4 class="anchored" data-anchor-id="split-the-data-into-training-and-test-sets">3. <strong>Split the data into training and test sets</strong></h4>
+<pre><code>set.seed(123)  # For reproducibility sample_index &lt;- sample(1:nrow(iris), 0.7 * nrow(iris))  # 70% train train_data &lt;- iris[sample_index, ] test_data &lt;- iris[-sample_index, ] </code></pre>
+</section>
+<section id="train-the-random-forest-model" class="level4">
+<h4 class="anchored" data-anchor-id="train-the-random-forest-model">4. <strong>Train the Random Forest model</strong></h4>
+<pre><code>model &lt;- randomForest(Species ~ ., data = train_data, ntree = 100, mtry = 2, importance = TRUE) print(model) </code></pre>
+</section>
+<section id="predict-on-test-data" class="level4">
+<h4 class="anchored" data-anchor-id="predict-on-test-data">5. <strong>Predict on test data</strong></h4>
+<pre><code>predictions &lt;- predict(model, newdata = test_data) </code></pre>
+</section>
+<section id="evaluate-model-accuracy" class="level4">
+<h4 class="anchored" data-anchor-id="evaluate-model-accuracy">6. <strong>Evaluate model accuracy</strong></h4>
+<pre><code>confusion_matrix &lt;- table(predicted = predictions, actual = test_data$Species) print(confusion_matrix) accuracy &lt;- sum(diag(confusion_matrix)) / sum(confusion_matrix) cat("Accuracy:", accuracy) </code></pre>
+</section>
+<section id="plot-feature-importance" class="level4">
+<h4 class="anchored" data-anchor-id="plot-feature-importance">7. <strong>Plot feature importance</strong></h4>
+<pre><code>importance(model) varImpPlot(model) </code></pre>
 <p><strong>Neural Networks</strong></p>
 <p>A Neural Networks (NN) machine learning model inspired by how the human brain works. It is composed of layers of interconnected nodes (called <strong>neurons</strong>) that can learn to recognize patterns in data.</p>
 <p>In essence, a neural network is a <strong>function approximator</strong> that maps input data to an output (like predicting if a person has diabetes or classifying an image).</p>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
