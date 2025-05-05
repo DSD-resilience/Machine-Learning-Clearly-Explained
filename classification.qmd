@@ -196,3 +196,35 @@ importance(model) varImpPlot(model)
 A Neural Networks (NN) machine learning model inspired by how the human brain works. It is composed of layers of interconnected nodes (called **neurons**) that can learn to recognize patterns in data.
 
 In essence, a neural network is a **function approximator** that maps input data to an output (like predicting if a person has diabetes or classifying an image).
+
+Here's a **brief example** of a neural network built in **R** using the `neuralnet` package to predict the logical **AND** function.
+
+### 🔧 Prerequisites
+
+First, install and load the `neuralnet` package:
+
+```         
+install.packages("neuralnet") library(neuralnet) 
+```
+
+### 📊 Prepare the Data
+
+Create a simple dataset for the AND function:
+
+```         
+# Create data frame training_data <- data.frame(   input1 = c(0, 0, 1, 1),   input2 = c(0, 1, 0, 1),   output = c(0, 0, 0, 1) ) 
+```
+
+### 🧠 Train the Neural Network
+
+```         
+# Train neural network model <- neuralnet(output ~ input1 + input2,                     data = training_data,                     hidden = 2,      # One hidden layer with 2 neurons                    linear.output = FALSE)  # Plot the network plot(model) 
+```
+
+### 🔍 Make Predictions
+
+```         
+# Test the network predictions <- compute(model, training_data[, c("input1", "input2")]) predictions$net.result  # Output probabilities 
+```
+
+This is a basic example. For more complex datasets, consider using `keras` in R for deep learning. **Deep learning** is a subset of machine learning that uses neural networks with many layers (hence "deep") to model complex patterns in data. It excels at learning from large volumes of unstructured data such as images, audio, text, and video.
