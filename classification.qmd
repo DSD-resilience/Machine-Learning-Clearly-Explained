@@ -228,3 +228,51 @@ Create a simple dataset for the AND function:
 ```
 
 This is a basic example. For more complex datasets, consider using `keras` in R for deep learning. **Deep learning** is a subset of machine learning that uses neural networks with many layers (hence "deep") to model complex patterns in data. It excels at learning from large volumes of unstructured data such as images, audio, text, and video.
+
+Here's a simple example of a deep learning model in R using the `keras` package. This example uses the classic **MNIST handwritten digit classification** problem.
+
+### Step-by-step Example in R:
+
+#### 1. **Install and load the necessary packages**
+
+```         
+install.packages("keras") library(keras) 
+```
+
+#### 2. **Load the MNIST dataset**
+
+```         
+mnist <- dataset_mnist() x_train <- mnist$train$x y_train <- mnist$train$y x_test <- mnist$test$x y_test <- mnist$test$y 
+```
+
+#### 3. **Preprocess the data**
+
+```         
+# Reshape and normalize input data x_train <- array_reshape(x_train, c(nrow(x_train), 784)) / 255 x_test <- array_reshape(x_test, c(nrow(x_test), 784)) / 255  # One-hot encode the labels y_train <- to_categorical(y_train, 10) y_test <- to_categorical(y_test, 10) 
+```
+
+#### 4. **Define the deep learning model**
+
+```         
+model <- keras_model_sequential() %>%   layer_dense(units = 256, activation = 'relu', input_shape = c(784)) %>%   layer_dropout(rate = 0.4) %>%   layer_dense(units = 128, activation = 'relu') %>%   layer_dropout(rate = 0.3) %>%   layer_dense(units = 10, activation = 'softmax') 
+```
+
+#### 5. **Compile the model**
+
+```         
+model %>% compile(   loss = 'categorical_crossentropy',   optimizer = optimizer_adam(),   metrics = c('accuracy') ) 
+```
+
+#### 6. **Train the model**
+
+```         
+history <- model %>% fit(   x_train, y_train,   epochs = 30,   batch_size = 128,   validation_split = 0.2 ) 
+```
+
+#### 7. **Evaluate the model**
+
+```         
+score <- model %>% evaluate(x_test, y_test) cat('Test loss:', score$loss, '\n') cat('Test accuracy:', score$accuracy, '\n') 
+```
+
+This will train a neural network with two hidden layers on the MNIST dataset.
