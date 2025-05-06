@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.29">
+<meta name="generator" content="quarto-1.7.30">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -71,7 +71,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-0815c480559380816a4d1ea211a47e91.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-de070a7b0ab54f8780927367ac907214.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="site_libs/bootstrap/bootstrap-cd45479b1f8f340aae3d956d5417ba67.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
@@ -171,6 +171,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#prepare-the-data" id="toc-prepare-the-data" class="nav-link" data-scroll-target="#prepare-the-data">📊 Prepare the Data</a></li>
   <li><a href="#train-the-neural-network" id="toc-train-the-neural-network" class="nav-link" data-scroll-target="#train-the-neural-network">🧠 Train the Neural Network</a></li>
   <li><a href="#make-predictions" id="toc-make-predictions" class="nav-link" data-scroll-target="#make-predictions">🔍 Make Predictions</a></li>
+  <li><a href="#step-by-step-example-in-r" id="toc-step-by-step-example-in-r" class="nav-link" data-scroll-target="#step-by-step-example-in-r">Step-by-step Example in R:</a></li>
   </ul>
 </nav>
     </div>
@@ -275,9 +276,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"e1071"</span>) <span class="co"># Only run this once</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># Downloading packages -------------------------------------------------------
-- Downloading e1071 from CRAN ...               OK [571.2 Kb in 0.59s]
-- Downloading proxy from CRAN ...               OK [169.3 Kb in 0.58s]
-Successfully downloaded 2 packages in 2.3 seconds.
+- Downloading e1071 from CRAN ...               OK [571.2 Kb in 0.54s]
+- Downloading proxy from CRAN ...               OK [169.3 Kb in 0.49s]
+Successfully downloaded 2 packages in 1.9 seconds.
 
 The following package(s) will be installed:
 - e1071 [1.7-16]
@@ -287,7 +288,7 @@ These packages will be installed into "~/work/Machine-Learning-Clearly-Explained
 # Installing packages --------------------------------------------------------
 - Installing proxy ...                          OK [installed binary and cached in 0.2s]
 - Installing e1071 ...                          OK [installed binary and cached in 0.22s]
-Successfully installed 2 packages in 0.49 seconds.</code></pre>
+Successfully installed 2 packages in 0.51 seconds.</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load the package</span></span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(e1071)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -357,8 +358,41 @@ Successfully installed 2 packages in 0.49 seconds.</code></pre>
 <h3 class="anchored" data-anchor-id="make-predictions">🔍 Make Predictions</h3>
 <pre><code># Test the network predictions &lt;- compute(model, training_data[, c("input1", "input2")]) predictions$net.result  # Output probabilities </code></pre>
 <p>This is a basic example. For more complex datasets, consider using <code>keras</code> in R for deep learning. <strong>Deep learning</strong> is a subset of machine learning that uses neural networks with many layers (hence “deep”) to model complex patterns in data. It excels at learning from large volumes of unstructured data such as images, audio, text, and video.</p>
+<p>Here’s a simple example of a deep learning model in R using the <code>keras</code> package. This example uses the classic <strong>MNIST handwritten digit classification</strong> problem.</p>
+</section>
+<section id="step-by-step-example-in-r" class="level3">
+<h3 class="anchored" data-anchor-id="step-by-step-example-in-r">Step-by-step Example in R:</h3>
+<section id="install-and-load-the-necessary-packages" class="level4">
+<h4 class="anchored" data-anchor-id="install-and-load-the-necessary-packages">1. <strong>Install and load the necessary packages</strong></h4>
+<pre><code>install.packages("keras") library(keras) </code></pre>
+</section>
+<section id="load-the-mnist-dataset" class="level4">
+<h4 class="anchored" data-anchor-id="load-the-mnist-dataset">2. <strong>Load the MNIST dataset</strong></h4>
+<pre><code>mnist &lt;- dataset_mnist() x_train &lt;- mnist$train$x y_train &lt;- mnist$train$y x_test &lt;- mnist$test$x y_test &lt;- mnist$test$y </code></pre>
+</section>
+<section id="preprocess-the-data" class="level4">
+<h4 class="anchored" data-anchor-id="preprocess-the-data">3. <strong>Preprocess the data</strong></h4>
+<pre><code># Reshape and normalize input data x_train &lt;- array_reshape(x_train, c(nrow(x_train), 784)) / 255 x_test &lt;- array_reshape(x_test, c(nrow(x_test), 784)) / 255  # One-hot encode the labels y_train &lt;- to_categorical(y_train, 10) y_test &lt;- to_categorical(y_test, 10) </code></pre>
+</section>
+<section id="define-the-deep-learning-model" class="level4">
+<h4 class="anchored" data-anchor-id="define-the-deep-learning-model">4. <strong>Define the deep learning model</strong></h4>
+<pre><code>model &lt;- keras_model_sequential() %&gt;%   layer_dense(units = 256, activation = 'relu', input_shape = c(784)) %&gt;%   layer_dropout(rate = 0.4) %&gt;%   layer_dense(units = 128, activation = 'relu') %&gt;%   layer_dropout(rate = 0.3) %&gt;%   layer_dense(units = 10, activation = 'softmax') </code></pre>
+</section>
+<section id="compile-the-model" class="level4">
+<h4 class="anchored" data-anchor-id="compile-the-model">5. <strong>Compile the model</strong></h4>
+<pre><code>model %&gt;% compile(   loss = 'categorical_crossentropy',   optimizer = optimizer_adam(),   metrics = c('accuracy') ) </code></pre>
+</section>
+<section id="train-the-model" class="level4">
+<h4 class="anchored" data-anchor-id="train-the-model">6. <strong>Train the model</strong></h4>
+<pre><code>history &lt;- model %&gt;% fit(   x_train, y_train,   epochs = 30,   batch_size = 128,   validation_split = 0.2 ) </code></pre>
+</section>
+<section id="evaluate-the-model" class="level4">
+<h4 class="anchored" data-anchor-id="evaluate-the-model">7. <strong>Evaluate the model</strong></h4>
+<pre><code>score &lt;- model %&gt;% evaluate(x_test, y_test) cat('Test loss:', score$loss, '\n') cat('Test accuracy:', score$accuracy, '\n') </code></pre>
+<p>This will train a neural network with two hidden layers on the MNIST dataset.</p>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
