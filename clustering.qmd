@@ -7,9 +7,7 @@ Clustering is used when you want to classify your data but you are not sure how.
 
 One of the most popular types of clustering models is **K-means** clustering.
 
-**Assumes**: Spherical clusters of equal variance. K-Means tends to group data into clusters where each cluster is roughly circular (in 2D) or spherical (in higher dimensions) around its centroid.
-
-This is because K-Means uses Euclidean distance to assign points to the nearest cluster center — and all points that are equidistant to a center form a hypersphere.
+K-Means tends to group data into clusters where each cluster is roughly circular (in 2D) or spherical (in higher dimensions) around its centroid. Thus, a key assumption is that these spherical clusters are of equal variance. K-Means uses Euclidean distance to assign points to the nearest cluster center — and all points that are equidistant to a center form a hypersphere. A hypersphere is the generalization of a circle (2D) and sphere (3D) to n-dimensional space.
 
 📌 Key point- this makes clusters are shaped like blobs around the center — not elongated or skewed.
 
