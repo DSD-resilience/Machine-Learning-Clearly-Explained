@@ -188,8 +188,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <p>Clustering is used when you want to classify your data but you are not sure how. Clustering is a form of <strong>unsupervised</strong> learning.</p>
 <p>One of the most popular types of clustering models is <strong>K-means</strong> clustering.</p>
-<p><strong>Assumes</strong>: Spherical clusters of equal variance. K-Means tends to group data into clusters where each cluster is roughly circular (in 2D) or spherical (in higher dimensions) around its centroid.</p>
-<p>This is because K-Means uses Euclidean distance to assign points to the nearest cluster center — and all points that are equidistant to a center form a hypersphere.</p>
+<p>K-Means tends to group data into clusters where each cluster is roughly circular (in 2D) or spherical (in higher dimensions) around its centroid. Thus, a key assumption is that these spherical clusters are of equal variance. K-Means uses Euclidean distance to assign points to the nearest cluster center — and all points that are equidistant to a center form a hypersphere. A hypersphere is the generalization of a circle (2D) and sphere (3D) to n-dimensional space.</p>
 <p>📌 Key point- this makes clusters are shaped like blobs around the center — not elongated or skewed.</p>
 <p><strong>Strengths</strong>: Fast, simple, works well with large datasets.</p>
 <p><strong>Limitations</strong>: Requires the number of clusters (<code>k</code>) to be specified; not great with non-spherical or varying-density clusters.</p>
@@ -218,10 +217,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"dbscan"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># Downloading packages -------------------------------------------------------
-- Downloading dbscan from CRAN ...              OK [2.8 Mb in 0.5s]
-- Downloading generics from CRAN ...            OK [69.9 Kb in 0.29s]
-- Downloading Rcpp from CRAN ...                OK [2 Mb in 0.27s]
-Successfully downloaded 3 packages in 1.6 seconds.
+- Downloading dbscan from CRAN ...              OK [2.8 Mb in 0.51s]
+- Downloading generics from CRAN ...            OK [69.9 Kb in 0.16s]
+- Downloading Rcpp from CRAN ...                OK [2 Mb in 0.38s]
+Successfully downloaded 3 packages in 1.5 seconds.
 
 The following package(s) will be installed:
 - dbscan   [1.2.2]
@@ -243,7 +242,7 @@ These packages will be installed into "~/work/Machine-Learning-Clearly-Explained
 
 # Installing packages --------------------------------------------------------
 - Installing ggplot2 ...                        OK [linked from cache]
-Successfully installed 1 package in 4.5 milliseconds.</code></pre>
+Successfully installed 1 package in 4.4 milliseconds.</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dbscan)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
