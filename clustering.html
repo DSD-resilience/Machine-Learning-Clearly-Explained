@@ -160,7 +160,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#notes" id="toc-notes" class="nav-link active" data-scroll-target="#notes">📝 Notes</a></li>
+  <li><a href="#k-means" id="toc-k-means" class="nav-link active" data-scroll-target="#k-means"><strong>K-Means</strong></a></li>
+  <li><a href="#hierarchical" id="toc-hierarchical" class="nav-link" data-scroll-target="#hierarchical"><strong>Hierarchical</strong></a></li>
+  <li><a href="#dbscan" id="toc-dbscan" class="nav-link" data-scroll-target="#dbscan"><strong>DBSCAN</strong></a></li>
+  <li><a href="#notes" id="toc-notes" class="nav-link" data-scroll-target="#notes">📝 Notes</a></li>
   </ul>
 </nav>
     </div>
@@ -187,19 +190,27 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 <p>Clustering is used when you want to classify your data but you are not sure how. Clustering is a form of <strong>unsupervised</strong> learning.</p>
+<section id="k-means" class="level3">
+<h3 class="anchored" data-anchor-id="k-means"><strong>K-Means</strong></h3>
 <p>One of the most popular types of clustering models is <strong>K-means</strong> clustering.</p>
-<p>K-Means gropus data into clusters where each cluster is roughly circular (in 2D) or spherical (in higher dimensions) around its “centroid.” A centroid is</p>
+<p>K-Means groups data into clusters where each cluster is roughly circular (in 2D) or spherical (in higher dimensions) around its “centroid.” A centroid is the geometric center or the “average” point of a set of points in a multidimensional space.</p>
 <p>Thus, a key assumption is that these spherical clusters are of equal variance. K-Means uses Euclidean distance to assign points to the nearest cluster center — and all points that are equidistant to a center form a hypersphere. A hypersphere is the generalization of a circle (2D) and sphere (3D) to n-dimensional space.</p>
 <p>📌 Key point- this makes clusters are shaped like blobs around the center — not elongated or skewed.</p>
 <p><strong>Strengths</strong>: Fast, simple, works well with large datasets.</p>
 <p><strong>Limitations</strong>: Requires the number of clusters (<code>k</code>) to be specified; not great with non-spherical or varying-density clusters.</p>
 <p>R package: [<code>stats::kmeans()</code>], also <code>cluster</code> and <code>factoextra</code> for visualization.</p>
+</section>
+<section id="hierarchical" class="level3">
+<h3 class="anchored" data-anchor-id="hierarchical"><strong>Hierarchical</strong></h3>
 <p>Another popular type of clustering model is <strong>Hierarchical</strong> clustering.</p>
 <p><strong>Types</strong>: Agglomerative (bottom-up) and divisive (top-down).</p>
 <p><strong>Output</strong>: Dendrogram (tree of clusters).</p>
 <p><strong>Strengths</strong>: Does not require predefined <code>k</code>; good for nested structures.</p>
 <p><strong>Limitations</strong>: Computationally expensive for large datasets.</p>
 <p>R package: <code>stats::hclust()</code>, <code>dendextend</code>, <code>cluster</code>.</p>
+</section>
+<section id="dbscan" class="level3">
+<h3 class="anchored" data-anchor-id="dbscan"><strong>DBSCAN</strong></h3>
 <p>Still another popular type of clustering mode is <strong>DBSCAN (Density-Based Spatial Clustering of Applications with Noise)</strong> clustering.</p>
 <p>✅ Why is it popular?</p>
 <ul>
@@ -218,10 +229,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"dbscan"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># Downloading packages -------------------------------------------------------
-- Downloading dbscan from CRAN ...              OK [2.8 Mb in 0.76s]
-- Downloading generics from CRAN ...            OK [69.9 Kb in 0.27s]
-- Downloading Rcpp from CRAN ...                OK [2 Mb in 0.44s]
-Successfully downloaded 3 packages in 2 seconds.
+- Downloading dbscan from CRAN ...              OK [2.8 Mb in 0.53s]
+- Downloading generics from CRAN ...            OK [69.9 Kb in 0.14s]
+- Downloading Rcpp from CRAN ...                OK [2 Mb in 0.15s]
+Successfully downloaded 3 packages in 1.3 seconds.
 
 The following package(s) will be installed:
 - dbscan   [1.2.2]
@@ -231,8 +242,8 @@ These packages will be installed into "~/work/Machine-Learning-Clearly-Explained
 
 # Installing packages --------------------------------------------------------
 - Installing generics ...                       OK [installed binary and cached in 0.2s]
-- Installing Rcpp ...                           OK [installed binary and cached in 0.41s]
-- Installing dbscan ...                         OK [installed binary and cached in 0.34s]
+- Installing Rcpp ...                           OK [installed binary and cached in 0.39s]
+- Installing dbscan ...                         OK [installed binary and cached in 0.33s]
 Successfully installed 3 packages in 1.1 seconds.</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"ggplot2"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -243,7 +254,7 @@ These packages will be installed into "~/work/Machine-Learning-Clearly-Explained
 
 # Installing packages --------------------------------------------------------
 - Installing ggplot2 ...                        OK [linked from cache]
-Successfully installed 1 package in 4.5 milliseconds.</code></pre>
+Successfully installed 1 package in 4.4 milliseconds.</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dbscan)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
@@ -318,6 +329,7 @@ Attaching package: 'dbscan'</code></pre>
 </div>
 </div>
 </div>
+</section>
 <section id="notes" class="level3">
 <h3 class="anchored" data-anchor-id="notes">📝 Notes</h3>
 <p><strong><code>eps</code></strong> (epsilon): max distance between two samples to be considered neighbors.</p>
