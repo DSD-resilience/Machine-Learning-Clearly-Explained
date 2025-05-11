@@ -33,45 +33,6 @@ This is a statistical method used to model the relationship between a binary dep
 
 To run a logistic regression in R, use the `glm()` function with an argument of `family = binomial`. This fits a generalized linear model where the dependent variable is binary (0/1). You should check assumptions, multicollinearity, and goodness-of-fit afterward.
 
-This code:
-
--   Uses the Sonar dataset (metal vs rock classification),
-
--   Trains a logistic regression model,
-
--   Makes binary predictions,
-
--   Evaluates the results using a confusion matrix.
-
-```{r}
-# Load required libraries
-library(mlbench)       # For the dataset
-library(caret)         # For data splitting and evaluation
-
-# Load a binary classification dataset
-data(Sonar)
-dataset <- Sonar
-
-# Split into training and test sets
-set.seed(42)
-trainIndex <- createDataPartition(dataset$Class, p = 0.8, list = FALSE)
-trainData <- dataset[trainIndex, ]
-testData  <- dataset[-trainIndex, ]
-
-# Fit logistic regression model
-model <- glm(Class ~ ., data = trainData, family = binomial)
-
-# Predict on test data (returns probabilities)
-probabilities <- predict(model, testData, type = "response")
-
-# Convert probabilities to binary predictions (threshold = 0.5)
-predicted_class <- ifelse(probabilities > 0.5, "M", "R")
-predicted_class <- factor(predicted_class, levels = levels(testData$Class))
-
-# Evaluate model performance
-confusionMatrix(predicted_class, testData$Class)
-```
-
 **Naive Bayes (N-B)**
 
 N-B is a probabilistic machine learning algorithm based on Bayes’ Theorem. It's particularly used for classification tasks, and it's called “naive” because it assumes independence between features — which is rarely true in practice, but surprisingly effective in many cases.
