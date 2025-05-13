@@ -27,6 +27,18 @@ Another popular type of clustering model is **Hierarchical** clustering.
 
 **Types**: Agglomerative (bottom-up) and divisive (top-down).
 
+Here is an easy way to understand a **bottom-up clustering method**.
+
+**Start with every data point as its own cluster**.
+
+**Find the two closest clusters** (based on a distance metric like Euclidean distance).
+
+**Merge them into one cluster**.
+
+**Repeat steps 2 and 3** until all data points are merged into a single cluster (or until a stopping condition is met). You can **cut the dendrogram** at any level to choose the number of clusters you want.
+
+It’s a good choice when you want to **understand the hierarchy or nested structure** of your data.
+
 **Output**: Dendrogram (tree of clusters).
 
 **Strengths**: Does not require predefined `k`; good for nested structures.
