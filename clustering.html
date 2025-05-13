@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.30">
+<meta name="generator" content="quarto-1.7.31">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -71,7 +71,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-de070a7b0ab54f8780927367ac907214.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-e1a5c8363afafaef2c763b6775fbf3ca.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="site_libs/bootstrap/bootstrap-d73a3becde7ab5743b8a88b26cbb919d.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
@@ -204,6 +204,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h3 class="anchored" data-anchor-id="hierarchical"><strong>Hierarchical</strong></h3>
 <p>Another popular type of clustering model is <strong>Hierarchical</strong> clustering.</p>
 <p><strong>Types</strong>: Agglomerative (bottom-up) and divisive (top-down).</p>
+<p>Here is an easy way to understand a <strong>bottom-up clustering method</strong>.</p>
+<p><strong>Start with every data point as its own cluster</strong>.</p>
+<p><strong>Find the two closest clusters</strong> (based on a distance metric like Euclidean distance).</p>
+<p><strong>Merge them into one cluster</strong>.</p>
+<p><strong>Repeat steps 2 and 3</strong> until all data points are merged into a single cluster (or until a stopping condition is met). You can <strong>cut the dendrogram</strong> at any level to choose the number of clusters you want.</p>
+<p>It’s a good choice when you want to <strong>understand the hierarchy or nested structure</strong> of your data.</p>
 <p><strong>Output</strong>: Dendrogram (tree of clusters).</p>
 <p><strong>Strengths</strong>: Does not require predefined <code>k</code>; good for nested structures.</p>
 <p><strong>Limitations</strong>: Computationally expensive for large datasets.</p>
@@ -229,10 +235,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"dbscan"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># Downloading packages -------------------------------------------------------
-- Downloading dbscan from CRAN ...              OK [2.8 Mb in 0.71s]
-- Downloading generics from CRAN ...            OK [74.3 Kb in 0.51s]
-- Downloading Rcpp from CRAN ...                OK [2 Mb in 0.69s]
-Successfully downloaded 3 packages in 2.5 seconds.
+- Downloading dbscan from CRAN ...              OK [2.8 Mb in 0.29s]
+- Downloading generics from CRAN ...            OK [74.3 Kb in 0.32s]
+- Downloading Rcpp from CRAN ...                OK [2 Mb in 0.14s]
+Successfully downloaded 3 packages in 1.2 seconds.
 
 The following package(s) will be installed:
 - dbscan   [1.2.2]
@@ -242,7 +248,7 @@ These packages will be installed into "~/work/Machine-Learning-Clearly-Explained
 
 # Installing packages --------------------------------------------------------
 - Installing generics ...                       OK [installed binary and cached in 0.2s]
-- Installing Rcpp ...                           OK [installed binary and cached in 0.4s]
+- Installing Rcpp ...                           OK [installed binary and cached in 0.41s]
 - Installing dbscan ...                         OK [installed binary and cached in 0.34s]
 Successfully installed 3 packages in 1.1 seconds.</code></pre>
 </div>
@@ -254,7 +260,7 @@ These packages will be installed into "~/work/Machine-Learning-Clearly-Explained
 
 # Installing packages --------------------------------------------------------
 - Installing ggplot2 ...                        OK [linked from cache]
-Successfully installed 1 package in 4.7 milliseconds.</code></pre>
+Successfully installed 1 package in 4.3 milliseconds.</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dbscan)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
