@@ -31,7 +31,7 @@ It’s a good choice when you want to **understand the hierarchy or nested struc
 
 **Output**: Dendrogram (tree of clusters).
 
-**Strengths**: Does not require predefined `k`; good for nested structures.
+**Strengths**: Does not require predefined `k`; good for nested structures. A `k` is typically the number of clusters you want to form.
 
 **Limitations**: Computationally expensive for large datasets.
 
