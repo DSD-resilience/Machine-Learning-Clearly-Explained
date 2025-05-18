@@ -11,7 +11,7 @@ One of the most popular types of clustering models is **K-means** clustering.
 
 K-Means groups data into clusters where each cluster is roughly circular (in 2D) or spherical (in higher dimensions) around its "centroid." A centroid is the geometric center or the "average" point of a set of points in a multidimensional space.
 
-Thus, a key assumption is that these spherical clusters are of equal variance. K-Means uses Euclidean distance to assign points to the nearest cluster center — and all points that are equidistant to a center form a hypersphere. A hypersphere is the generalization of a circle (2D) and sphere (3D) to n-dimensional space.
+A key assumption is that these spherical clusters are of equal variance. K-Means uses Euclidean distance to assign points to the nearest cluster center — and all points that are equidistant to a center form a hypersphere. A hypersphere is the generalization of a circle (2D) and sphere (3D) to n-dimensional space.
 
 📌 Key point- this makes clusters are shaped like blobs around the center — not elongated or skewed.
 
