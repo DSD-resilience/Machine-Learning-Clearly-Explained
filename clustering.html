@@ -74,7 +74,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-e1a5c8363afafaef2c763b6775fbf3ca.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-cd45479b1f8f340aae3d956d5417ba67.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-de6b502918c39f294bc341e4a14d1c49.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -194,7 +194,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h3 class="anchored" data-anchor-id="k-means"><strong>K-Means</strong></h3>
 <p>One of the most popular types of clustering models is <strong>K-means</strong> clustering.</p>
 <p>K-Means groups data into clusters where each cluster is roughly circular (in 2D) or spherical (in higher dimensions) around its “centroid.” A centroid is the geometric center or the “average” point of a set of points in a multidimensional space.</p>
-<p>Thus, a key assumption is that these spherical clusters are of equal variance. K-Means uses Euclidean distance to assign points to the nearest cluster center — and all points that are equidistant to a center form a hypersphere. A hypersphere is the generalization of a circle (2D) and sphere (3D) to n-dimensional space.</p>
+<p>A key assumption is that these spherical clusters are of equal variance. K-Means uses Euclidean distance to assign points to the nearest cluster center — and all points that are equidistant to a center form a hypersphere. A hypersphere is the generalization of a circle (2D) and sphere (3D) to n-dimensional space.</p>
 <p>📌 Key point- this makes clusters are shaped like blobs around the center — not elongated or skewed.</p>
 <p><strong>Strengths</strong>: Fast, simple, works well with large datasets.</p>
 <p><strong>Limitations</strong>: Requires the number of clusters (<code>k</code>) to be specified; not great with non-spherical or varying-density clusters.</p>
@@ -230,10 +230,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"dbscan"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># Downloading packages -------------------------------------------------------
-- Downloading dbscan from CRAN ...              OK [2.8 Mb in 0.28s]
-- Downloading generics from CRAN ...            OK [74.3 Kb in 0.21s]
-- Downloading Rcpp from CRAN ...                OK [2 Mb in 0.18s]
-Successfully downloaded 3 packages in 1.2 seconds.
+- Downloading dbscan from CRAN ...              OK [2.8 Mb in 0.48s]
+- Downloading generics from CRAN ...            OK [74.3 Kb in 0.25s]
+- Downloading Rcpp from CRAN ...                OK [2 Mb in 0.29s]
+Successfully downloaded 3 packages in 1.5 seconds.
 
 The following package(s) will be installed:
 - dbscan   [1.2.2]
@@ -242,9 +242,9 @@ The following package(s) will be installed:
 These packages will be installed into "~/work/Machine-Learning-Clearly-Explained/Machine-Learning-Clearly-Explained/renv/library/R-4.2/x86_64-pc-linux-gnu".
 
 # Installing packages --------------------------------------------------------
-- Installing generics ...                       OK [installed binary and cached in 0.21s]
-- Installing Rcpp ...                           OK [installed binary and cached in 0.42s]
-- Installing dbscan ...                         OK [installed binary and cached in 0.35s]
+- Installing generics ...                       OK [installed binary and cached in 0.2s]
+- Installing Rcpp ...                           OK [installed binary and cached in 0.4s]
+- Installing dbscan ...                         OK [installed binary and cached in 0.33s]
 Successfully installed 3 packages in 1.1 seconds.</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"ggplot2"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
