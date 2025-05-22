@@ -195,7 +195,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>One of the most popular types of clustering models is <strong>K-means</strong> clustering.</p>
 <p>K-Means groups data into clusters where each cluster is roughly circular (in 2D) or spherical (in higher dimensions) around its “centroid.” A centroid is the geometric center or the “average” point of a set of points in a multidimensional space.</p>
 <p>A key assumption is that these spherical clusters are of equal variance. K-Means uses Euclidean distance to assign points to the nearest cluster center — and all points that are equidistant to a center form a hypersphere. A hypersphere is the generalization of a circle (2D) and sphere (3D) to n-dimensional space.</p>
-<p>📌 Key point- this makes clusters are shaped like blobs around the center — not elongated or skewed.</p>
+<p>📌 <strong>Key point</strong>- this makes clusters are shaped like blobs around the center — not elongated or skewed.</p>
 <p><strong>Strengths</strong>: Fast, simple, works well with large datasets.</p>
 <p><strong>Limitations</strong>: Requires the number of clusters (<code>k</code>) to be specified; not great with non-spherical or varying-density clusters.</p>
 <p>R package: [<code>stats::kmeans()</code>], also <code>cluster</code> and <code>factoextra</code> for visualization.</p>
@@ -203,7 +203,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="hierarchical" class="level3">
 <h3 class="anchored" data-anchor-id="hierarchical"><strong>Hierarchical</strong></h3>
 <p>Another popular type of clustering model is <strong>Hierarchical</strong> clustering. There are two methods: Agglomerative (bottom-up) or divisive (top-down).</p>
-<p>Here is an easy way to understand a <strong>bottom-up clustering method</strong>. Start with every data point as its own cluster. <strong>Find the two closest clusters</strong> (based on a distance metric like Euclidean distance), merge them into one cluster. <strong>Repeat</strong> this until all data points are merged into a single cluster (or until a stopping condition is met).</p>
+<p>Here is an easy way to understand a <strong>bottom-up clustering method</strong>.</p>
+<ol type="1">
+<li>Start with every data point as its own cluster.</li>
+<li>Find the two closest clusters (based on a distance metric like Euclidean distance).</li>
+<li>Merge them into one cluster.</li>
+<li><strong>Repeat</strong> this until all data points are merged into a single cluster (or until a stopping condition is met).</li>
+</ol>
 <p>It’s a good choice when you want to <strong>understand the hierarchy or nested structure</strong> of your data.</p>
 <p><strong>Output</strong>: Dendrogram (tree of clusters).</p>
 <p><strong>Strengths</strong>: Does not require predefined <code>k</code>; good for nested structures. A <code>k</code> is typically the number of clusters you want to form.</p>
@@ -212,7 +218,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="dbscan" class="level3">
 <h3 class="anchored" data-anchor-id="dbscan"><strong>DBSCAN</strong></h3>
-<p>Still another popular type of clustering mode is <strong>DBSCAN (Density-Based Spatial Clustering of Applications with Noise)</strong> clustering.</p>
+<p>Still another popular type of clustering mode is <strong>DBSCAN</strong> (Density-Based Spatial Clustering of Applications with Noise) clustering.</p>
+<p>The “density-based” part of DBSCAN refers to how the algorithm defines clusters based on the <strong>density of data points</strong> in a region, rather than using predefined numbers of clusters (like k-means) or assuming specific cluster shapes.</p>
 <p>✅ Why is it popular?</p>
 <ul>
 <li><p>There is no need to specify the number of clusters in advance (unlike K-means).</p></li>
@@ -230,10 +237,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"dbscan"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># Downloading packages -------------------------------------------------------
-- Downloading dbscan from CRAN ...              OK [2.8 Mb in 0.48s]
-- Downloading generics from CRAN ...            OK [74.3 Kb in 0.25s]
-- Downloading Rcpp from CRAN ...                OK [2 Mb in 0.29s]
-Successfully downloaded 3 packages in 1.5 seconds.
+- Downloading dbscan from CRAN ...              OK [2.8 Mb in 0.54s]
+- Downloading generics from CRAN ...            OK [74.3 Kb in 0.36s]
+- Downloading Rcpp from CRAN ...                OK [2 Mb in 0.62s]
+Successfully downloaded 3 packages in 2 seconds.
 
 The following package(s) will be installed:
 - dbscan   [1.2.2]
@@ -242,10 +249,10 @@ The following package(s) will be installed:
 These packages will be installed into "~/work/Machine-Learning-Clearly-Explained/Machine-Learning-Clearly-Explained/renv/library/R-4.2/x86_64-pc-linux-gnu".
 
 # Installing packages --------------------------------------------------------
-- Installing generics ...                       OK [installed binary and cached in 0.2s]
-- Installing Rcpp ...                           OK [installed binary and cached in 0.4s]
+- Installing generics ...                       OK [installed binary and cached in 0.19s]
+- Installing Rcpp ...                           OK [installed binary and cached in 0.39s]
 - Installing dbscan ...                         OK [installed binary and cached in 0.33s]
-Successfully installed 3 packages in 1.1 seconds.</code></pre>
+Successfully installed 3 packages in 1 second.</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"ggplot2"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -255,7 +262,7 @@ These packages will be installed into "~/work/Machine-Learning-Clearly-Explained
 
 # Installing packages --------------------------------------------------------
 - Installing ggplot2 ...                        OK [linked from cache]
-Successfully installed 1 package in 4.5 milliseconds.</code></pre>
+Successfully installed 1 package in 4.8 milliseconds.</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dbscan)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
