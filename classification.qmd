@@ -7,7 +7,7 @@ Classification models are used when you know the categories, or labels, that you
 
 Supervised learning is a type of machine learning where the model learns from a labeled data set—that is, data that has both **input features (X)** and known **target outputs (Y)**.
 
-The goal is to learn a function that maps inputs to outputs so it can make predictions on new, unseen data.
+The machine learns to map inputs to outputs so it can make predictions on new, unseen data.
 
 A practical example of supervised learning and classification is spam email detection. We want to automatically classify incoming emails as **"spam"** or **"not spam."** The **inputs (features) c**ould include:
 
