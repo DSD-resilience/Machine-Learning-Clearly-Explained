@@ -207,6 +207,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><p>Number of links or attachments</p></li>
 <li><p>Email length</p></li>
 <li><p>Frequency of punctuation like “!!!” or “$$$”</p></li>
+<li><p>Use of ALL CAPS</p></li>
 </ul>
 <p>These act like clues to let the computer know that a specific email could be spam. You can understand how this is modeled on human thinking. We also look for patterns that will lead us to a conclusion.</p>
 <p>The <strong>outputs (labels)</strong> in this case would be <code>1</code> for spam, and <code>0</code> for not spam (aka ham). If you have email a classification model is likely at work on your account, separating the “spam” from the “ham.”</p>
@@ -276,9 +277,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"e1071"</span>) <span class="co"># Only run this once</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># Downloading packages -------------------------------------------------------
-- Downloading e1071 from CRAN ...               OK [571.2 Kb in 0.78s]
-- Downloading proxy from CRAN ...               OK [169.3 Kb in 0.38s]
-Successfully downloaded 2 packages in 1.4 seconds.
+- Downloading e1071 from CRAN ...               OK [571.2 Kb in 0.7s]
+- Downloading proxy from CRAN ...               OK [169.3 Kb in 0.84s]
+Successfully downloaded 2 packages in 1.8 seconds.
 
 The following package(s) will be installed:
 - e1071 [1.7-16]
