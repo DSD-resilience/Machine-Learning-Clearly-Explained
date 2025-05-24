@@ -21,6 +21,8 @@ A practical example of supervised learning and classification is spam email dete
 
 -   Frequency of punctuation like "!!!" or "\$\$\$"
 
+-   Use of ALL CAPS
+
 These act like clues to let the computer know that a specific email could be spam. You can understand how this is modeled on human thinking. We also look for patterns that will lead us to a conclusion.
 
 The **outputs (labels)** in this case would be `1` for spam, and `0` for not spam (aka ham). If you have email a classification model is likely at work on your account, separating the "spam" from the "ham."
