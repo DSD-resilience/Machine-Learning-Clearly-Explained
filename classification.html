@@ -217,8 +217,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>To run a logistic regression in R, use the <code>glm()</code> function with an argument of <code>family = binomial</code>. This fits a generalized linear model where the dependent variable is binary (0/1). You should check assumptions, multicollinearity, and goodness-of-fit afterward.</p>
 <p><strong>Naive Bayes (N-B)</strong></p>
 <p>N-B is a probabilistic machine learning algorithm based on Bayes’ Theorem. It’s particularly used for classification tasks, and it’s called “naive” because it assumes independence between features — which is rarely true in practice, but surprisingly effective in many cases.</p>
-<p>For example, in spam detection, N-B would assume that the presence of the word “free” is independent of “money” — given the email is spam. Not usually true, but this simplifies the math <strong>a lot</strong>.</p>
-<p>Sure! Here’s a simple example of implementing <strong>Naive Bayes</strong> in <strong>R</strong> using the built-in <code>iris</code> dataset and the <code>e1071</code> package.</p>
+<p>For example, in spam detection, N-B would assume that the presence of the word “free” is independent of “money” — given the email is spam. This is not usually true, but this simplifies the math <strong>a lot</strong>.</p>
+<p>Here’s a simple example of implementing <strong>Naive Bayes</strong> in <strong>R</strong> using the built-in <code>iris</code> dataset and the <code>e1071</code> package.</p>
 <hr>
 <section id="step-1-install-and-load-the-required-package" class="level3">
 <h3 class="anchored" data-anchor-id="step-1-install-and-load-the-required-package">📦 Step 1: Install and load the required package</h3>
@@ -277,9 +277,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"e1071"</span>) <span class="co"># Only run this once</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># Downloading packages -------------------------------------------------------
-- Downloading e1071 from CRAN ...               OK [571.2 Kb in 0.7s]
-- Downloading proxy from CRAN ...               OK [169.3 Kb in 0.84s]
-Successfully downloaded 2 packages in 1.8 seconds.
+- Downloading e1071 from CRAN ...               OK [571.2 Kb in 0.94s]
+- Downloading proxy from CRAN ...               OK [169.3 Kb in 0.63s]
+Successfully downloaded 2 packages in 1.9 seconds.
 
 The following package(s) will be installed:
 - e1071 [1.7-16]
@@ -288,8 +288,8 @@ These packages will be installed into "~/work/Machine-Learning-Clearly-Explained
 
 # Installing packages --------------------------------------------------------
 - Installing proxy ...                          OK [installed binary and cached in 0.2s]
-- Installing e1071 ...                          OK [installed binary and cached in 0.21s]
-Successfully installed 2 packages in 0.46 seconds.</code></pre>
+- Installing e1071 ...                          OK [installed binary and cached in 0.22s]
+Successfully installed 2 packages in 0.47 seconds.</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load the package</span></span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(e1071)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
