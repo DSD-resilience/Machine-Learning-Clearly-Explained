@@ -39,9 +39,9 @@ To run a logistic regression in R, use the `glm()` function with an argument of 
 
 N-B is a probabilistic machine learning algorithm based on Bayes’ Theorem. It's particularly used for classification tasks, and it's called “naive” because it assumes independence between features — which is rarely true in practice, but surprisingly effective in many cases.
 
-For example, in spam detection, N-B would assume that the presence of the word “free” is independent of “money” — given the email is spam. Not usually true, but this simplifies the math **a lot**.
+For example, in spam detection, N-B would assume that the presence of the word “free” is independent of “money” — given the email is spam. This is not usually true, but this simplifies the math **a lot**.
 
-Sure! Here's a simple example of implementing **Naive Bayes** in **R** using the built-in `iris` dataset and the `e1071` package.
+Here's a simple example of implementing **Naive Bayes** in **R** using the built-in `iris` dataset and the `e1071` package.
 
 ------------------------------------------------------------------------
 
