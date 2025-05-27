@@ -194,7 +194,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ul>
 <p>It’s like drawing a <strong>trend line</strong> through data points to see how one thing changes with another. 📈😊</p>
 <p><strong>Linear regression</strong> is one of the most useful and popular forecasting tools available. Quite simply, it assumes that there is a linear relationship between one variable and a second variable. If you plot data for these two variables on a graph, you can draw a line through it and make a decent guess about what the second variable will be depending on the value of the first variable.</p>
-<p>To learn more technical aspects of linear regression, visit <a href="https://en.wikipedia.org/wiki/Linear_regression" class="uri">the Wikipedia entry</a>.</p>
 <p>An initial model for “simple linear regression” is easy to build in R. This may not seem that impressive at first, but we’ll examine its technical output shortly.</p>
 <p>Load the data set and build a linear model:</p>
 <div class="cell">
@@ -297,8 +296,8 @@ Number of Fisher Scoring iterations: 5</code></pre>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"palmerpenguins"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># Downloading packages -------------------------------------------------------
-- Downloading palmerpenguins from CRAN ...      OK [2.9 Mb in 0.64s]
-Successfully downloaded 1 package in 0.84 seconds.
+- Downloading palmerpenguins from CRAN ...      OK [2.9 Mb in 0.18s]
+Successfully downloaded 1 package in 0.39 seconds.
 
 The following package(s) will be installed:
 - palmerpenguins [0.1.1]
@@ -372,6 +371,7 @@ F-statistic:  1060 on 1 and 331 DF,  p-value: &lt; 2.2e-16</code></pre>
 </div>
 </div>
 <p>What the model demonstrates is that for every 1 mm increase in flipper length, the predicted body mass increases by approximately 58.4 grams.</p>
+<p>To learn more technical aspects of linear regression, read <a href="https://en.wikipedia.org/wiki/Linear_regression" class="uri">this Wikipedia entry</a>.</p>
 
 
 </section>
