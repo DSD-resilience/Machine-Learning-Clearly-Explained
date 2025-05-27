@@ -14,8 +14,6 @@ It’s like drawing a **trend line** through data points to see how one thing ch
 
 **Linear regression** is one of the most useful and popular forecasting tools available. Quite simply, it assumes that there is a linear relationship between one variable and a second variable. If you plot data for these two variables on a graph, you can draw a line through it and make a decent guess about what the second variable will be depending on the value of the first variable.
 
-To learn more technical aspects of linear regression, visit [the Wikipedia entry](https://en.wikipedia.org/wiki/Linear_regression){.uri}.
-
 An initial model for "simple linear regression" is easy to build in R. This may not seem that impressive at first, but we'll examine its technical output shortly.
 
 Load the data set and build a linear model:
@@ -154,3 +152,5 @@ abline(model, col = "red", lwd = 2)
 ```
 
 What the model demonstrates is that for every 1 mm increase in flipper length, the predicted body mass increases by approximately 58.4 grams.
+
+To learn more technical aspects of linear regression, read [this Wikipedia entry](https://en.wikipedia.org/wiki/Linear_regression){.uri}.
