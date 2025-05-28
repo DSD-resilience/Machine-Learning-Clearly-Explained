@@ -58,7 +58,9 @@ ggplot(iris, aes(x = Petal.Length, y = Sepal.Length)) +
   theme_minimal()
 ```
 
-The variable Petal Length is on the x-axis (horizontal) and is called the "independent" variable. The variable Sepal Length is on the y-axis (vertical) and is called the "dependent" variable. As you might guess, the objective of this "model" (a simulation of reality) is to see how much influence Petal Length may have on Sepal Length. We don't know if they are related at all at first, but by examining the data we can tease out that perhaps we can draw a straight line through the data that explains a possible relationship. In this case we see that, generally speaking, the longer the petal length is on an iris, the longer sepal length will be. Sometimes these relationships are intuitive, such as a taller person being heavier than a short person, but not always. Generally, we use data science to look for non-obvious relationships and performing a linear regression is just one tool.
+The variable Petal Length is on the x-axis (horizontal) and is called the "independent" variable. The variable Sepal Length is on the y-axis (vertical) and is called the "dependent" variable.
+
+The objective of this "model" (a simulation of reality) is to see how much influence Petal Length may have on Sepal Length. We don't know if they are related at all at first, but by examining the data we can tease out that perhaps we can draw a straight line through the data that explains a possible relationship. In this case we see that, generally speaking, the longer the petal length is on an iris, the longer sepal length will be. Sometimes these relationships are intuitive, such as a taller person being heavier than a short person, but not always. Generally, we use data science to look for non-obvious relationships and performing a linear regression is just one tool.
 
 Now that we have an intuitive grasp on the subject from the visualization, let's look at the statistical facts about this model.
 
