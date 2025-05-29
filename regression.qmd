@@ -41,7 +41,7 @@ install.packages('ggplot2')
 library(ggplot2)
 ```
 
-Now build the chart that displays the relationship between variables:
+Next build the chart that displays the relationship between variables:
 
 ```{r}
 #| message: false
