@@ -3,11 +3,11 @@ title: "Clustering"
 format: html
 ---
 
-Clustering is used when you want to classify your data but you are not sure how. Clustering is a form of **unsupervised** learning.
+Clustering is used when you want to label your data but you are not sure how. Clustering is a form of **unsupervised** learning.
 
 ### **K-Means**
 
-One of the most popular types of clustering models is **K-means** clustering.
+One of the most popular types of clustering models is **K-Means** clustering.
 
 K-Means groups data into clusters where each cluster is roughly circular (in 2D) or spherical (in higher dimensions) around its "centroid." A centroid is the geometric center or the "average" point of a set of points in a multidimensional space.
 
@@ -52,7 +52,7 @@ The "density-based" part of DBSCAN refers to how the algorithm defines clusters 
 
 -   There is no need to specify the number of clusters in advance (unlike K-means).
 
--   Can find arbitrarily shaped clusters, not just spherical ones.
+-   It can find arbitrarily shaped clusters, not just spherical ones.
 
 -   Robust to outliers — it can identify noise points as a separate class.
 
@@ -66,7 +66,7 @@ Border Point: Within ε of a core point but has fewer than MinPts.
 
 Noise Point: Not a core or border point.
 
-Let's do an example of DBSCAN. The `iris` data set is often used, even though it is already labeled.
+Here is an example of DBSCAN. The `iris` data set is used here, even though it is already labeled.
 
 ```{r}
 #| message: false
@@ -125,3 +125,33 @@ ggplot(iris_pca, aes(PC1, PC2, color = Cluster)) +
 **`minPts`**: minimum number of points required to form a dense region.
 
 The elbow/k-distance plot helps you pick a good `eps`.
+
+Here is another example of DBSCAN.
+
+```{r}
+# Install required packages if not already installed
+install.packages("dbscan")
+install.packages("ggplot2")
+
+# Load libraries
+library(dbscan)
+library(ggplot2)
+
+# Sample data: Simulated delivery locations (lat, lon)
+set.seed(42)
+n <- 100
+lat <- c(rnorm(n, mean = 40.7128, sd = 0.01), rnorm(n, mean = 40.7306, sd = 0.01))
+lon <- c(rnorm(n, mean = -74.0060, sd = 0.01), rnorm(n, mean = -73.9352, sd = 0.01))
+data <- data.frame(lon, lat)
+
+# Run DBSCAN
+db <- dbscan(data, eps = 0.02, minPts = 5)
+
+# Plot the results
+data$cluster <- as.factor(db$cluster)
+ggplot(data, aes(x = lon, y = lat, color = cluster)) +
+  geom_point(size = 2) +
+  labs(title = "DBSCAN Clustering of Delivery Points", x = "Longitude", y = "Latitude") +
+  theme_minimal()
+
+```
