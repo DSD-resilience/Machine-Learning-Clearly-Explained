@@ -7,7 +7,7 @@ Clustering is used when you want to label your data but you are not sure how. Cl
 
 ### **K-Means**
 
-One of the most popular types of clustering models is **K-Means** clustering.
+One of the most popular types of clustering models is **K-Means**.
 
 K-Means groups data into clusters where each cluster is roughly circular (in 2D) or spherical (in higher dimensions) around its "centroid." A centroid is the geometric center or the "average" point of a set of points in a multidimensional space.
 
