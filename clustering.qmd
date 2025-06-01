@@ -120,11 +120,11 @@ ggplot(iris_pca, aes(PC1, PC2, color = Cluster)) +
 
 ### 📝 Notes
 
-**`eps`** (epsilon): max distance between two samples to be considered neighbors.
+**`eps`** (epsilon): A maximum distance between two samples to be considered neighbors.
 
-**`minPts`**: minimum number of points required to form a dense region.
+**`minPts`**: A minimum number of points required to form a dense region.
 
-The elbow/k-distance plot helps you pick a good `eps`.
+The elbow/k-distance plot helps you pick a good `eps`. Here is an example of an elbow/k-distance plot:
 
 Here is another example of DBSCAN.
 
