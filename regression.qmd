@@ -12,7 +12,7 @@ For example:
 
 It’s like drawing a **trend line** through data points to see how one thing changes with another. 📈😊
 
-**Linear regression** is one of the most useful and popular forecasting tools available. Quite simply, it assumes that there is a linear relationship between one variable and a second variable. If you plot data for these two variables on a graph, you can draw a line through it and make a decent guess about what the second variable will be depending on the value of the first variable.
+**Linear regression** is one of the most useful and popular forecasting tools available. Quite simply, it assumes that there is a linear (a line) relationship between one variable and a second variable. If you plot data for these two variables on a graph, you can draw a line through it and make a decent guess about what the second variable will be depending on the value of the first variable.
 
 An initial model for "simple linear regression" is easy to build in R. This may not seem that impressive at first, but we'll examine its technical output shortly.
 
