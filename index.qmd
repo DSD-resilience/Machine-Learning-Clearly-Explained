@@ -6,7 +6,7 @@ Machine learning is one of the most important developments in computer science. 
 
 Fundamentally, **it is a way for computers to learn from data and improve at tasks without being explicitly told what to do step by step.**
 
-Instead of writing rules by hand, we give the computer a lot of examples, and it figures out patterns or rules on its own.
+Instead of writing rules to provide, we give the computer a lot of examples, and it figures out patterns or rules on its own.
 
 ![Lots of data equals smart robots.](images/ml-robot.png)
 
