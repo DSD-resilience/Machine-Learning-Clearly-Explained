@@ -91,4 +91,4 @@ Machine learning is used **almost everywhere** you can collect data and automati
 
 > **Machine learning is about using data to make smarter decisions!**
 >
-> With the right tools and data, we can teach computers to help us in ways that were once impossible — from personalized healthcare to AI-powered assistants.
+> With the correct tools and data, we can teach computers to help us in ways that were once impossible — from personalized healthcare to AI-powered assistants.
