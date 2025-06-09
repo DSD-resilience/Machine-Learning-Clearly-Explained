@@ -20,7 +20,7 @@ It gets even better. It depends on what models you utilize, but a computer doesn
 
 If you want a computer to tell you what marketing might work best, then you can give it the data from several customers. This is very common in today's society and used in almost every industry.
 
-Over time, the computer "learns" what features are distinct from customer to customer and labels the customer by what marketing could work best and result in higher sales.
+Over time, the computer "learns" what features are distinct from customer to customer and labels the customer by what marketing could work best and thus lead to higher sales.
 
 Both of these instances are kind of like teaching by example rather than instruction.
 
