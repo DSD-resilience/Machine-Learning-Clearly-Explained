@@ -292,14 +292,14 @@ Number of Fisher Scoring iterations: 5</code></pre>
 <li>The output is in <strong>log-odds</strong>, but we can convert it to probabilities.</li>
 </ul>
 <p>In R 4.5.0, you can use the <strong><code>palmerpenguins</code></strong> dataset, which is a built-in dataset (after loading the appropriate package), to perform regression analysis. Here’s a simple example using <strong>linear regression</strong> to predict penguin <strong>body mass</strong> from <strong>flipper length</strong>.</p>
-<p>First, we’ll make sure to have the <code>palmerpenguins</code> package installed and loaded, just in case someone has not updated to R4.5.0:</p>
+<p>First, we’ll make sure to have the <code>palmerpenguins</code> package installed and loaded:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Install if you haven't already</span></span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"palmerpenguins"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># Downloading packages -------------------------------------------------------
-- Downloading palmerpenguins from CRAN ...      OK [2.9 Mb in 0.29s]
-Successfully downloaded 1 package in 0.5 seconds.
+- Downloading palmerpenguins from CRAN ...      OK [2.9 Mb in 1.1s]
+Successfully downloaded 1 package in 1.3 seconds.
 
 The following package(s) will be installed:
 - palmerpenguins [0.1.1]
@@ -307,7 +307,7 @@ These packages will be installed into "~/work/Machine-Learning-Clearly-Explained
 
 # Installing packages --------------------------------------------------------
 - Installing palmerpenguins ...                 OK [installed binary and cached in 0.24s]
-Successfully installed 1 package in 0.29 seconds.</code></pre>
+Successfully installed 1 package in 0.28 seconds.</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load the package</span></span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(palmerpenguins)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
