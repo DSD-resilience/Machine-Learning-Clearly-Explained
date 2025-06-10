@@ -106,7 +106,7 @@ summary(model)
 
 In R 4.5.0, you can use the **`palmerpenguins`** dataset, which is a built-in dataset (after loading the appropriate package), to perform regression analysis. Here's a simple example using **linear regression** to predict penguin **body mass** from **flipper length**.
 
-First, we'll make sure to have the `palmerpenguins` package installed and loaded, just in case someone has not updated to R4.5.0:
+First, we'll make sure to have the `palmerpenguins` package installed and loaded:
 
 ```{r}
 # Install if you haven't already
