@@ -3,7 +3,7 @@ title: "Clustering"
 format: html
 ---
 
-Clustering is used when you want to label your data but you are not sure how. Clustering is a form of **unsupervised** learning.
+Clustering is used when you want to label your data but you are not sure how. It is a form of **unsupervised** learning. Clustering involves grouping a set of data points into clusters, such that points within the same cluster are more similar to each other than to those in other clusters, based on some similarity or distance metric.
 
 ### **K-Means**
 
