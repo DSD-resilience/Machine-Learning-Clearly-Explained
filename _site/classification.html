@@ -166,6 +166,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#step-4-make-predictions" id="toc-step-4-make-predictions" class="nav-link" data-scroll-target="#step-4-make-predictions">🧪 Step 4: Make predictions</a></li>
   <li><a href="#step-5-evaluate-the-model" id="toc-step-5-evaluate-the-model" class="nav-link" data-scroll-target="#step-5-evaluate-the-model">📊 Step 5: Evaluate the model</a></li>
   <li><a href="#step-1-install-and-load-the-required-package-1" id="toc-step-1-install-and-load-the-required-package-1" class="nav-link" data-scroll-target="#step-1-install-and-load-the-required-package-1">📦 Step 1: Install and load the required package</a></li>
+  <li><a href="#step-by-step-random-forest-example-in-r" id="toc-step-by-step-random-forest-example-in-r" class="nav-link" data-scroll-target="#step-by-step-random-forest-example-in-r">✅ <strong>Step-by-step Random Forest Example in R</strong></a></li>
+  <li><a href="#prerequisites" id="toc-prerequisites" class="nav-link" data-scroll-target="#prerequisites">🔧 Prerequisites</a></li>
+  <li><a href="#prepare-the-data" id="toc-prepare-the-data" class="nav-link" data-scroll-target="#prepare-the-data">📊 Prepare the Data</a></li>
+  <li><a href="#train-the-neural-network" id="toc-train-the-neural-network" class="nav-link" data-scroll-target="#train-the-neural-network">🧠 Train the Neural Network</a></li>
+  <li><a href="#make-predictions" id="toc-make-predictions" class="nav-link" data-scroll-target="#make-predictions">🔍 Make Predictions</a></li>
+  <li><a href="#step-by-step-example-in-r" id="toc-step-by-step-example-in-r" class="nav-link" data-scroll-target="#step-by-step-example-in-r">Step-by-step Example in R:</a></li>
   </ul>
 </nav>
     </div>
@@ -193,7 +199,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <p>Classification models are used when you know the categories, or labels, that you wish to use on your data. Both classification and regression are forms of <strong>supervised</strong> learning.</p>
 <p>Supervised learning is a type of machine learning where the model learns from a labeled data set—that is, data that has both <strong>input features (X)</strong> and known <strong>target outputs (Y)</strong>.</p>
-<p>The goal is to learn a function that maps inputs to outputs so it can make predictions on new, unseen data.</p>
+<p>The machine learns to map inputs to outputs so it can make predictions on new, unseen data.</p>
 <p>A practical example of supervised learning and classification is spam email detection. We want to automatically classify incoming emails as <strong>“spam”</strong> or <strong>“not spam.”</strong> The <strong>inputs (features) c</strong>ould include:</p>
 <ul>
 <li><p>Presence of certain keywords (like “free”, “winner”, etc.)</p></li>
@@ -201,6 +207,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><p>Number of links or attachments</p></li>
 <li><p>Email length</p></li>
 <li><p>Frequency of punctuation like “!!!” or “$$$”</p></li>
+<li><p>Use of ALL CAPS</p></li>
 </ul>
 <p>These act like clues to let the computer know that a specific email could be spam. You can understand how this is modeled on human thinking. We also look for patterns that will lead us to a conclusion.</p>
 <p>The <strong>outputs (labels)</strong> in this case would be <code>1</code> for spam, and <code>0</code> for not spam (aka ham). If you have email a classification model is likely at work on your account, separating the “spam” from the “ham.”</p>
@@ -210,8 +217,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>To run a logistic regression in R, use the <code>glm()</code> function with an argument of <code>family = binomial</code>. This fits a generalized linear model where the dependent variable is binary (0/1). You should check assumptions, multicollinearity, and goodness-of-fit afterward.</p>
 <p><strong>Naive Bayes (N-B)</strong></p>
 <p>N-B is a probabilistic machine learning algorithm based on Bayes’ Theorem. It’s particularly used for classification tasks, and it’s called “naive” because it assumes independence between features — which is rarely true in practice, but surprisingly effective in many cases.</p>
-<p>For example, in spam detection, N-B would assume that the presence of the word “free” is independent of “money” — given the email is spam. Not usually true, but this simplifies the math <strong>a lot</strong>.</p>
-<p>Sure! Here’s a simple example of implementing <strong>Naive Bayes</strong> in <strong>R</strong> using the built-in <code>iris</code> dataset and the <code>e1071</code> package.</p>
+<p>For example, in spam detection, N-B would assume that the presence of the word “free” is independent of “money” — given the email is spam. This is not usually true, but this simplifies the math <strong>a lot</strong>.</p>
+<p>Here’s a simple example of implementing <strong>Naive Bayes</strong> in <strong>R</strong> using the built-in <code>iris</code> dataset and the <code>e1071</code> package.</p>
 <hr>
 <section id="step-1-install-and-load-the-required-package" class="level3">
 <h3 class="anchored" data-anchor-id="step-1-install-and-load-the-required-package">📦 Step 1: Install and load the required package</h3>
@@ -256,7 +263,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"Accuracy:"</span>, <span class="fu">round</span>(accuracy <span class="sc">*</span> <span class="dv">100</span>, <span class="dv">2</span>), <span class="st">"%</span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <hr>
 <p>A confusion matrix is a table that visualizes the performance of a classification model by comparing its predicted labels to the true labels. It’s a valuable tool for understanding where a model might be getting confused and identifying areas for improvement.</p>
-<p>You can explore Naive Bayes further with different data sets, feature selection, and using <code>caret</code> or <code>mlr3</code> for more structured workflows.</p>
+<p>You can explore Naive Bayes further with different data sets, feature selection, and using the <code>caret</code> or <code>mlr3</code> packages in R for more structured workflows.</p>
 <p><strong>Support Vector Machines</strong></p>
 <p>SVM is a supervised machine learning algorithm primarily used for classification, but it can also handle regression tasks. This means that</p>
 <p>At its core, an SVM tries to find the best boundary (hyperplane) that separates data points of different classes in the feature space. SVM tries to <strong>maximize the margin</strong> between data points of different classes. The margin is the distance between the hyperplane and the <strong>nearest points from each class</strong>, which are called <strong>support vectors</strong>.</p>
@@ -275,7 +282,7 @@ These packages will be installed into "/cloud/project/renv/library/linux-ubuntu-
 
 # Installing packages --------------------------------------------------------
 - Installing e1071 ...                          OK [linked from cache]
-Successfully installed 1 package in 7.2 milliseconds.</code></pre>
+Successfully installed 1 package in 8.6 milliseconds.</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load the package</span></span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(e1071)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -290,11 +297,96 @@ Successfully installed 1 package in 7.2 milliseconds.</code></pre>
 <li><p><strong>Bootstrap sampling (Bagging)</strong>: Each tree is trained on a <strong>random sample</strong> (with replacement) of the training data.</p></li>
 <li><p><strong>Random feature selection</strong>: When splitting nodes, each tree considers only a <strong>random subset of features</strong> instead of all features. This adds diversity and reduces correlation among trees.</p></li>
 </ol>
+<p>Here’s an example of using Random Forest in R using the built-in <code>iris</code> dataset. We’ll use the <code>randomForest</code> package, a popular and simple way to build Random Forest models.</p>
+</section>
+<section id="step-by-step-random-forest-example-in-r" class="level3">
+<h3 class="anchored" data-anchor-id="step-by-step-random-forest-example-in-r">✅ <strong>Step-by-step Random Forest Example in R</strong></h3>
+<section id="install-and-load-the-package" class="level4">
+<h4 class="anchored" data-anchor-id="install-and-load-the-package">1. <strong>Install and load the package</strong></h4>
+<pre><code>install.packages("randomForest")  # Only run once library(randomForest) </code></pre>
+</section>
+<section id="load-the-data" class="level4">
+<h4 class="anchored" data-anchor-id="load-the-data">2. <strong>Load the data</strong></h4>
+<pre><code>data(iris) head(iris) </code></pre>
+</section>
+<section id="split-the-data-into-training-and-test-sets" class="level4">
+<h4 class="anchored" data-anchor-id="split-the-data-into-training-and-test-sets">3. <strong>Split the data into training and test sets</strong></h4>
+<pre><code>set.seed(123)  # For reproducibility sample_index &lt;- sample(1:nrow(iris), 0.7 * nrow(iris))  # 70% train train_data &lt;- iris[sample_index, ] test_data &lt;- iris[-sample_index, ] </code></pre>
+</section>
+<section id="train-the-random-forest-model" class="level4">
+<h4 class="anchored" data-anchor-id="train-the-random-forest-model">4. <strong>Train the Random Forest model</strong></h4>
+<pre><code>model &lt;- randomForest(Species ~ ., data = train_data, ntree = 100, mtry = 2, importance = TRUE) print(model) </code></pre>
+</section>
+<section id="predict-on-test-data" class="level4">
+<h4 class="anchored" data-anchor-id="predict-on-test-data">5. <strong>Predict on test data</strong></h4>
+<pre><code>predictions &lt;- predict(model, newdata = test_data) </code></pre>
+</section>
+<section id="evaluate-model-accuracy" class="level4">
+<h4 class="anchored" data-anchor-id="evaluate-model-accuracy">6. <strong>Evaluate model accuracy</strong></h4>
+<pre><code>confusion_matrix &lt;- table(predicted = predictions, actual = test_data$Species) print(confusion_matrix) accuracy &lt;- sum(diag(confusion_matrix)) / sum(confusion_matrix) cat("Accuracy:", accuracy) </code></pre>
+</section>
+<section id="plot-feature-importance" class="level4">
+<h4 class="anchored" data-anchor-id="plot-feature-importance">7. <strong>Plot feature importance</strong></h4>
+<pre><code>importance(model) varImpPlot(model) </code></pre>
 <p><strong>Neural Networks</strong></p>
 <p>A Neural Networks (NN) machine learning model inspired by how the human brain works. It is composed of layers of interconnected nodes (called <strong>neurons</strong>) that can learn to recognize patterns in data.</p>
 <p>In essence, a neural network is a <strong>function approximator</strong> that maps input data to an output (like predicting if a person has diabetes or classifying an image).</p>
+<p>Here’s a <strong>brief example</strong> of a neural network built in <strong>R</strong> using the <code>neuralnet</code> package to predict the logical <strong>AND</strong> function.</p>
+</section>
+</section>
+<section id="prerequisites" class="level3">
+<h3 class="anchored" data-anchor-id="prerequisites">🔧 Prerequisites</h3>
+<p>First, install and load the <code>neuralnet</code> package:</p>
+<pre><code>install.packages("neuralnet") library(neuralnet) </code></pre>
+</section>
+<section id="prepare-the-data" class="level3">
+<h3 class="anchored" data-anchor-id="prepare-the-data">📊 Prepare the Data</h3>
+<p>Create a simple dataset for the AND function:</p>
+<pre><code># Create data frame training_data &lt;- data.frame(   input1 = c(0, 0, 1, 1),   input2 = c(0, 1, 0, 1),   output = c(0, 0, 0, 1) ) </code></pre>
+</section>
+<section id="train-the-neural-network" class="level3">
+<h3 class="anchored" data-anchor-id="train-the-neural-network">🧠 Train the Neural Network</h3>
+<pre><code># Train neural network model &lt;- neuralnet(output ~ input1 + input2,                     data = training_data,                     hidden = 2,      # One hidden layer with 2 neurons                    linear.output = FALSE)  # Plot the network plot(model) </code></pre>
+</section>
+<section id="make-predictions" class="level3">
+<h3 class="anchored" data-anchor-id="make-predictions">🔍 Make Predictions</h3>
+<pre><code># Test the network predictions &lt;- compute(model, training_data[, c("input1", "input2")]) predictions$net.result  # Output probabilities </code></pre>
+<p>This is a basic example. For more complex datasets, consider using <code>keras</code> in R for deep learning. <strong>Deep learning</strong> is a subset of machine learning that uses neural networks with many layers (hence “deep”) to model complex patterns in data. It excels at learning from large volumes of unstructured data such as images, audio, text, and video.</p>
+<p>Here’s a simple example of a deep learning model in R using the <code>keras</code> package. This example uses the classic <strong>MNIST handwritten digit classification</strong> problem.</p>
+</section>
+<section id="step-by-step-example-in-r" class="level3">
+<h3 class="anchored" data-anchor-id="step-by-step-example-in-r">Step-by-step Example in R:</h3>
+<section id="install-and-load-the-necessary-packages" class="level4">
+<h4 class="anchored" data-anchor-id="install-and-load-the-necessary-packages">1. <strong>Install and load the necessary packages</strong></h4>
+<pre><code>install.packages("keras") library(keras) </code></pre>
+</section>
+<section id="load-the-mnist-dataset" class="level4">
+<h4 class="anchored" data-anchor-id="load-the-mnist-dataset">2. <strong>Load the MNIST dataset</strong></h4>
+<pre><code>mnist &lt;- dataset_mnist() x_train &lt;- mnist$train$x y_train &lt;- mnist$train$y x_test &lt;- mnist$test$x y_test &lt;- mnist$test$y </code></pre>
+</section>
+<section id="preprocess-the-data" class="level4">
+<h4 class="anchored" data-anchor-id="preprocess-the-data">3. <strong>Preprocess the data</strong></h4>
+<pre><code># Reshape and normalize input data x_train &lt;- array_reshape(x_train, c(nrow(x_train), 784)) / 255 x_test &lt;- array_reshape(x_test, c(nrow(x_test), 784)) / 255  # One-hot encode the labels y_train &lt;- to_categorical(y_train, 10) y_test &lt;- to_categorical(y_test, 10) </code></pre>
+</section>
+<section id="define-the-deep-learning-model" class="level4">
+<h4 class="anchored" data-anchor-id="define-the-deep-learning-model">4. <strong>Define the deep learning model</strong></h4>
+<pre><code>model &lt;- keras_model_sequential() %&gt;%   layer_dense(units = 256, activation = 'relu', input_shape = c(784)) %&gt;%   layer_dropout(rate = 0.4) %&gt;%   layer_dense(units = 128, activation = 'relu') %&gt;%   layer_dropout(rate = 0.3) %&gt;%   layer_dense(units = 10, activation = 'softmax') </code></pre>
+</section>
+<section id="compile-the-model" class="level4">
+<h4 class="anchored" data-anchor-id="compile-the-model">5. <strong>Compile the model</strong></h4>
+<pre><code>model %&gt;% compile(   loss = 'categorical_crossentropy',   optimizer = optimizer_adam(),   metrics = c('accuracy') ) </code></pre>
+</section>
+<section id="train-the-model" class="level4">
+<h4 class="anchored" data-anchor-id="train-the-model">6. <strong>Train the model</strong></h4>
+<pre><code>history &lt;- model %&gt;% fit(   x_train, y_train,   epochs = 30,   batch_size = 128,   validation_split = 0.2 ) </code></pre>
+</section>
+<section id="evaluate-the-model" class="level4">
+<h4 class="anchored" data-anchor-id="evaluate-the-model">7. <strong>Evaluate the model</strong></h4>
+<pre><code>score &lt;- model %&gt;% evaluate(x_test, y_test) cat('Test loss:', score$loss, '\n') cat('Test accuracy:', score$accuracy, '\n') </code></pre>
+<p>This will train a neural network with two hidden layers on the MNIST dataset.</p>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->

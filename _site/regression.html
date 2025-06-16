@@ -193,8 +193,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><p>If you know a <strong>student’s study hours</strong>, regression can estimate their <strong>exam score</strong>.</p></li>
 </ul>
 <p>It’s like drawing a <strong>trend line</strong> through data points to see how one thing changes with another. 📈😊</p>
-<p><strong>Linear regression</strong> is one of the most useful and popular forecasting tools available. Quite simply, it assumes that there is a linear relationship between one variable and a second variable. If you plot data for these two variables on a graph, you can draw a line through it and make a decent guess about what the second variable will be depending on the value of the first variable.</p>
-<p>To learn more technical aspects of linear regression, visit <a href="https://en.wikipedia.org/wiki/Linear_regression" class="uri">the Wikipedia entry</a>.</p>
+<p><strong>Linear regression</strong> is one of the most useful and popular forecasting tools available. Quite simply, it assumes that there is a linear (a line) relationship between one variable and a second variable. If you plot data for these two variables on a graph, you can draw a line through it and make a decent guess about what the second variable will be depending on the value of the first variable.</p>
 <p>An initial model for “simple linear regression” is easy to build in R. This may not seem that impressive at first, but we’ll examine its technical output shortly.</p>
 <p>Load the data set and build a linear model:</p>
 <div class="cell">
@@ -207,11 +206,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <p>Load the necessary library for the chart:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ggplot2 makes great charts!</span></span>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ggplot2 is essential for great charts</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">'ggplot2'</span>)</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Now build the chart that displays the relationship between variables:</p>
+<p>Next build the chart that displays the relationship between variables:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create scatter plot with regression line</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(iris, <span class="fu">aes</span>(<span class="at">x =</span> Petal.Length, <span class="at">y =</span> Sepal.Length)) <span class="sc">+</span></span>
@@ -233,7 +232,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<p>The variable Petal Length is on the x-axis (horizontal) and is called the “independent” variable. The variable Sepal Length is on the y-axis (vertical) and is called the “dependent” variable. As you might guess, the objective of this “model” (a simulation of reality) is to see how much influence Petal Length may have on Sepal Length. We don’t know if they are related at all at first, but by examining the data we can tease out that perhaps we can draw a straight line through the data that explains a possible relationship. In this case we see that, generally speaking, the longer the petal length is on an iris, the longer sepal length will be. Sometimes these relationships are intuitive, such as a taller person being heavier than a short person, but not always. Generally, we use data science to look for non-obvious relationships and performing a linear regression is just one tool.</p>
+<p>The variable Petal Length is on the x-axis (horizontal) and is called the “independent” variable. The variable Sepal Length is on the y-axis (vertical) and is called the “dependent” variable.</p>
+<p>The objective of this “model” (a simulation of reality) is to see how much influence Petal Length may have on Sepal Length. We don’t know if they are related at all at first, but by examining the data we can tease out that perhaps we can draw a straight line through the data that explains a possible relationship. Generally speaking, the longer the petal length is on an iris, the longer sepal length will be.</p>
+<p>Sometimes these relationships are intuitive, such as a taller person being heavier than a short person, but not always. Generally, we use data science to look for non-obvious relationships and patterns. This way the computer models complement our thinking. We use linear regression as just one tool.</p>
 <p>Now that we have an intuitive grasp on the subject from the visualization, let’s look at the statistical facts about this model.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Display model summary</span></span>
@@ -287,7 +288,7 @@ Number of Fisher Scoring iterations: 5</code></pre>
 <li>The output is in <strong>log-odds</strong>, but we can convert it to probabilities.</li>
 </ul>
 <p>In R 4.5.0, you can use the <strong><code>palmerpenguins</code></strong> dataset, which is a built-in dataset (after loading the appropriate package), to perform regression analysis. Here’s a simple example using <strong>linear regression</strong> to predict penguin <strong>body mass</strong> from <strong>flipper length</strong>.</p>
-<p>First, we’ll make sure to have the <code>palmerpenguins</code> package installed and loaded, just in case someone has not updated to R4.5.0:</p>
+<p>First, we’ll make sure to have the <code>palmerpenguins</code> package installed and loaded:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Install if you haven't already</span></span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"palmerpenguins"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -298,7 +299,7 @@ These packages will be installed into "/cloud/project/renv/library/linux-ubuntu-
 
 # Installing packages --------------------------------------------------------
 - Installing palmerpenguins ...                 OK [linked from cache]
-Successfully installed 1 package in 6.6 milliseconds.</code></pre>
+Successfully installed 1 package in 7.1 milliseconds.</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load the package</span></span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(palmerpenguins)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -364,6 +365,7 @@ F-statistic:  1060 on 1 and 331 DF,  p-value: &lt; 2.2e-16</code></pre>
 </div>
 </div>
 <p>What the model demonstrates is that for every 1 mm increase in flipper length, the predicted body mass increases by approximately 58.4 grams.</p>
+<p>To learn more technical aspects of linear regression, read <a href="https://en.wikipedia.org/wiki/Linear_regression" class="uri">this Wikipedia entry</a>.</p>
 
 
 </section>
