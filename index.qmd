@@ -42,7 +42,7 @@ In math terms, it’s about finding a function f(x) approximates y, where:
 
 -   f = learned mapping from input to output
 
-To apply machine learning, you usually need three things:
+# Three Machine Learning Essentials
 
 ### 1. **Data Infrastructure**
 
