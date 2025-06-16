@@ -61,7 +61,7 @@ In math terms, it’s about finding a function f(x) approximates y, where:
 
     🧪 XGBoost / LightGBM – fast, high-performance gradient boosting
 
-### 3. **Compute Power**
+### 3. **Computational Power**
 
 -   This is especially for large models like neural networks
 -   You can use:
