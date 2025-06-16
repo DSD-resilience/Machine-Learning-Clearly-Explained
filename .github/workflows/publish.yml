@@ -27,10 +27,6 @@ jobs:
         with:
           cache-version: 1
 
-      - name: Install packages
-        run: |
-        Rscript -e 'install.packages(c("ggplot2", "dplyr", "readr","gapminder"))'
-
       - name: Render and Publish
         uses: quarto-dev/quarto-actions/publish@v2
         with:
