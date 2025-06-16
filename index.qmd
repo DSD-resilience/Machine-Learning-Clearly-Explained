@@ -79,7 +79,7 @@ Machine learning is used **almost everywhere** you can collect data and automati
 
 -   **Classification** – spam detection, disease diagnosis, fraud detection
 
--   **Clustering** – segmenting customers, grouping similar documents
+-   **Clustering** – segmenting customers, grouping similar documents, labeling insights
 
 -   **Recommendation** – Netflix, YouTube, Amazon suggestions
 
