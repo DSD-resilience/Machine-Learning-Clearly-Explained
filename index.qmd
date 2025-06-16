@@ -51,7 +51,7 @@ In math terms, it’s about finding a function f(x) approximates y, where:
 
 ### 2. **ML Libraries and Frameworks**
 
--   Tools to **build models**, train them, and evaluate performance
+-   These are tools to **build** models, **train** models, and **evaluate** model performance
 
 -   Popular methods are:
 
