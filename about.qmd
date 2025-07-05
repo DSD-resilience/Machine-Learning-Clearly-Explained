@@ -4,13 +4,13 @@ title: "About"
 
 **Bottom Line Up Front:** As a strategic planner and software developer, my goal is data analysis that yields actionable insights.
 
--   👋 Hi, I’m JT, aka \@DSD-resilience on [GitHub](https://github.com/DSD-resilience), because resilience is a one of the key values of my digital products firm, DSD.
+-   👋 Hi, I’m JT, aka \@DSD-resilience on [GitHub](https://github.com/DSD-resilience), associated with the digital products firm, DSD.
 
--   👀 I’m interested in Shiny apps, statistics, AI-ML, data storytelling, and cyber resiliency.
+-   👀 I’m interested in AI-ML, statistics, AI-ML, building apps, data storytelling, cyber resiliency and writing about tech subjects.
 
--   🌱 I’m always learning more R, Python and SQL.
+-   🌱 I’m always learning more R, Python and SQL.  I work with HTML/CSS/JavaScript as needed.
 
--   💞️ I’m looking to collaborate on Shiny apps for enterprise, dashboards for strategic insights, statistical analysis and data cleaning.
+-   💞️ I’d love to collaborate on apps for enterprise, dashboards for strategic insights, statistical analysis and data cleaning. Available for hackathons.
 
 -   📫 How to reach me: [millerauthor\@datascientistdude.com](mailto:millerauthor@datascientistdude.com) for business inquiries please.
 
@@ -18,4 +18,4 @@ title: "About"
 
 -   ⚡ Fun fact: I am a (former) Russian/Ukrainian linguist.
 
-**Resume:**
+**Skills and Experiences:**
