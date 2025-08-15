@@ -10,6 +10,8 @@ For example:
 
 -   If you know a **student’s study hours**, regression can estimate their **exam score**.
 
+-   If you know **person's work experience and education**, regression can help determine their **income**.
+
 It’s like drawing a **trend line** through data points to see how one thing changes with another. 📈😊
 
 **Linear regression** is one of the most useful and popular forecasting tools available. Quite simply, it assumes that there is a linear (a line) relationship between one variable and a second variable. If you plot data for these two variables on a graph, you can draw a line through it and make a decent guess about what the second variable will be depending on the value of the first variable.
