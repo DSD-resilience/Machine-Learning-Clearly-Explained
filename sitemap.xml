@@ -1,23 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://DSD-resilience.github.io/Machine-Learning-Clearly-Explained/regression.html</loc>
-    <lastmod>2025-07-26T15:54:51.755Z</lastmod>
-  </url>
-  <url>
     <loc>https://DSD-resilience.github.io/Machine-Learning-Clearly-Explained/index.html</loc>
-    <lastmod>2025-07-26T15:54:51.755Z</lastmod>
-  </url>
-  <url>
-    <loc>https://DSD-resilience.github.io/Machine-Learning-Clearly-Explained/clustering.html</loc>
-    <lastmod>2025-07-26T15:54:51.747Z</lastmod>
+    <lastmod>2025-08-15T11:18:47.140Z</lastmod>
   </url>
   <url>
     <loc>https://DSD-resilience.github.io/Machine-Learning-Clearly-Explained/about.html</loc>
-    <lastmod>2025-07-26T15:54:51.747Z</lastmod>
+    <lastmod>2025-08-15T11:18:47.132Z</lastmod>
+  </url>
+  <url>
+    <loc>https://DSD-resilience.github.io/Machine-Learning-Clearly-Explained/regression.html</loc>
+    <lastmod>2025-08-15T11:18:47.140Z</lastmod>
+  </url>
+  <url>
+    <loc>https://DSD-resilience.github.io/Machine-Learning-Clearly-Explained/clustering.html</loc>
+    <lastmod>2025-08-15T11:18:47.132Z</lastmod>
   </url>
   <url>
     <loc>https://DSD-resilience.github.io/Machine-Learning-Clearly-Explained/classification.html</loc>
-    <lastmod>2025-07-26T15:54:51.747Z</lastmod>
+    <lastmod>2025-08-15T11:18:47.132Z</lastmod>
   </url>
 </urlset>
