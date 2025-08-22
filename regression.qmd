@@ -2,7 +2,7 @@
 title: "Linear and Logistic Regression"
 ---
 
-**Regression** is a way to find a relationship between variables and use that relationship to make predictions.
+**Regression** is a way to find a relationship between variables and use that relationship to make predictions and estimates.
 
 For example:
 
