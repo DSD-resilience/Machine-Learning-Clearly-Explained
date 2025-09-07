@@ -6,7 +6,7 @@ title: "Linear and Logistic Regression"
 
 For example:
 
--   If you know the **size of a house**, regression can help predict its **price**.
+-   If you know the **size of your house**, regression can help predict its **price**.
 
 -   If you know a **student’s study hours**, regression can estimate their **exam score**.
 
