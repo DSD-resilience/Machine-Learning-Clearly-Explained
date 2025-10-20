@@ -58,7 +58,7 @@ The "density-based" part of DBSCAN refers to how the algorithm defines clusters 
 
 Core Concepts ε (epsilon): Radius around a point to look for neighboring points.
 
-MinPts: Minimum number of points within ε radius to form a dense region.
+MinPts: The minimum number of points within ε radius to form a dense region.
 
 Core Point: Has at least MinPts within ε.
 
