@@ -75,7 +75,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-acfbf8a1be182de40da7c4910e8e90b1.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-fa6ebe1abc24c69c1ddb9a141d0fa116.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -192,7 +192,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p>Clustering is used when you want to label your data but you are not sure how. It is a form of <strong>unsupervised</strong> <strong>learning</strong>. Clustering involves grouping a set of data points into clusters, such that points within the same cluster are more similar to each other than to those in other clusters, based on some similarity or distance metric.</p>
+<p>Clustering is used if you want to label your data but you are not sure how. It is a form of <strong>unsupervised</strong> <strong>learning</strong>. Clustering involves grouping a set of data points into clusters, such that points within the same cluster are more similar to each other than to those in other clusters, based on some similarity or distance metric.</p>
 <section id="k-means" class="level3">
 <h3 class="anchored" data-anchor-id="k-means"><strong>K-Means</strong></h3>
 <p>One of the most popular types of clustering models is <strong>K-Means</strong>.</p>
@@ -239,67 +239,23 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load necessary packages</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"dbscan"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code># Downloading packages -------------------------------------------------------
-- Downloading dbscan from CRAN ...              OK [2.8 Mb in 1.2s]
-- Downloading generics from CRAN ...            OK [74.3 Kb in 0.31s]
-- Downloading Rcpp from CRAN ...                OK [2.1 Mb in 0.3s]
-Successfully downloaded 3 packages in 2.3 seconds.
-
-The following package(s) will be installed:
-- dbscan   [1.2.3]
-- generics [0.1.4]
-- Rcpp     [1.1.0]
+<pre><code>The following package(s) will be installed:
+- dbscan [1.2.3]
 These packages will be installed into "~/work/Machine-Learning-Clearly-Explained/Machine-Learning-Clearly-Explained/renv/library/R-4.2/x86_64-pc-linux-gnu".
 
 # Installing packages --------------------------------------------------------
-- Installing generics ...                       OK [installed binary and cached in 0.2s]
-- Installing Rcpp ...                           OK [installed binary and cached in 0.37s]
-- Installing dbscan ...                         OK [installed binary and cached in 0.36s]
-Successfully installed 3 packages in 1.1 seconds.</code></pre>
+- Installing dbscan ...                         OK [linked from cache]
+Successfully installed 1 package in 5.6 milliseconds.</code></pre>
 </div>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"ggplot2"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code># Downloading packages -------------------------------------------------------
-- Downloading ggplot2 from CRAN ...             OK [5.6 Mb in 1.1s]
-- Downloading gtable from CRAN ...              OK [213 Kb in 0.56s]
-- Downloading isoband from CRAN ...             OK [1.6 Mb in 0.96s]
-- Downloading S7 from CRAN ...                  OK [309.3 Kb in 0.84s]
-- Downloading scales from CRAN ...              OK [807.7 Kb in 0.94s]
-- Downloading farver from CRAN ...              OK [1.4 Mb in 0.31s]
-- Downloading labeling from CRAN ...            OK [57.8 Kb in 0.3s]
-- Downloading RColorBrewer from CRAN ...        OK [51.8 Kb in 0.43s]
-- Downloading viridisLite from CRAN ...         OK [1.2 Mb in 0.29s]
-- Downloading vctrs from CRAN ...               OK [1.2 Mb in 0.31s]
-- Downloading withr from CRAN ...               OK [211.6 Kb in 0.28s]
-Successfully downloaded 11 packages in 7.6 seconds.
-
-The following package(s) will be installed:
-- farver       [2.1.2]
-- ggplot2      [4.0.0]
-- gtable       [0.3.6]
-- isoband      [0.2.7]
-- labeling     [0.4.3]
-- RColorBrewer [1.1-3]
-- S7           [0.2.0]
-- scales       [1.4.0]
-- vctrs        [0.6.5]
-- viridisLite  [0.4.2]
-- withr        [3.0.2]
+<pre><code>The following package(s) will be installed:
+- ggplot2 [4.0.0]
 These packages will be installed into "~/work/Machine-Learning-Clearly-Explained/Machine-Learning-Clearly-Explained/renv/library/R-4.2/x86_64-pc-linux-gnu".
 
 # Installing packages --------------------------------------------------------
-- Installing gtable ...                         OK [installed binary and cached in 0.33s]
-- Installing isoband ...                        OK [installed binary and cached in 0.23s]
-- Installing S7 ...                             OK [installed binary and cached in 0.22s]
-- Installing farver ...                         OK [installed binary and cached in 0.23s]
-- Installing labeling ...                       OK [installed binary and cached in 0.2s]
-- Installing RColorBrewer ...                   OK [installed binary and cached in 0.2s]
-- Installing viridisLite ...                    OK [installed binary and cached in 0.21s]
-- Installing scales ...                         OK [installed binary and cached in 0.45s]
-- Installing vctrs ...                          OK [installed binary and cached in 0.35s]
-- Installing withr ...                          OK [installed binary and cached in 0.2s]
-- Installing ggplot2 ...                        OK [installed binary and cached in 0.76s]
-Successfully installed 11 packages in 3.7 seconds.</code></pre>
+- Installing ggplot2 ...                        OK [linked from cache]
+Successfully installed 1 package in 4.4 milliseconds.</code></pre>
 </div>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dbscan)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stderr">
