@@ -2,19 +2,19 @@
 title: "Linear and Logistic Regression"
 ---
 
-**Regression** is a way to find a relationship between variables and use that relationship to make predictions.
+**Regression** is a way to find a relationship between variables and use that relationship to make predictions and estimates.
 
 For example:
 
--   If you know the **size of a house**, regression can help predict its **price**.
+-   If you know the **size of your house**, regression can help predict its **price**.
 
 -   If you know a **student’s study hours**, regression can estimate their **exam score**.
 
+-   If you know **person's work experience and education**, regression can help determine their **income**.
+
 It’s like drawing a **trend line** through data points to see how one thing changes with another. 📈😊
 
-**Linear regression** is one of the most useful and popular forecasting tools available. Quite simply, it assumes that there is a linear relationship between one variable and a second variable. If you plot data for these two variables on a graph, you can draw a line through it and make a decent guess about what the second variable will be depending on the value of the first variable.
-
-To learn more technical aspects of linear regression, visit [the Wikipedia entry](https://en.wikipedia.org/wiki/Linear_regression){.uri}.
+**Linear regression** is one of the most useful and popular forecasting tools available. Quite simply, it assumes that there is a linear (a line) relationship between one variable and a second variable. If you plot data for these two variables on a graph, then draw a line through it, you can make a decent guess about what the second variable will be depending on the value of the first variable.
 
 An initial model for "simple linear regression" is easy to build in R. This may not seem that impressive at first, but we'll examine its technical output shortly.
 
@@ -27,6 +27,7 @@ Load the data set and build a linear model:
 # Load dataset
 data(iris)
 
+# Iris is a common data solution for testing models because of its relative simplicity
 # Fit linear regression model
 model <- lm(Sepal.Length ~ Petal.Length, data = iris)
 ```
@@ -37,12 +38,12 @@ Load the necessary library for the chart:
 #| message: false
 #| warning: false
 #| output: false
-# ggplot2 makes great charts!
+# ggplot2 is essential for great charts
 install.packages('ggplot2')
 library(ggplot2)
 ```
 
-Now build the chart that displays the relationship between variables:
+Next build the chart that displays the relationship between variables:
 
 ```{r}
 #| message: false
@@ -59,7 +60,11 @@ ggplot(iris, aes(x = Petal.Length, y = Sepal.Length)) +
   theme_minimal()
 ```
 
-The variable Petal Length is on the x-axis (horizontal) and is called the "independent" variable. The variable Sepal Length is on the y-axis (vertical) and is called the "dependent" variable. As you might guess, the objective of this "model" (a simulation of reality) is to see how much influence Petal Length may have on Sepal Length. We don't know if they are related at all at first, but by examining the data we can tease out that perhaps we can draw a straight line through the data that explains a possible relationship. In this case we see that, generally speaking, the longer the petal length is on an iris, the longer sepal length will be. Sometimes these relationships are intuitive, such as a taller person being heavier than a short person, but not always. Generally, we use data science to look for non-obvious relationships and performing a linear regression is just one tool.
+The variable Petal Length is on the x-axis (horizontal) and is called the "independent" variable. The variable Sepal Length is on the y-axis (vertical) and is called the "dependent" variable.
+
+The objective of this "model" (a simulation of reality) is to see how much influence Petal Length may have on Sepal Length. We don't know if they are related at all at first, but by examining the data we can tease out that perhaps we can draw a straight line through the data that explains a possible relationship. Generally speaking, the longer the petal length is on an iris, the longer sepal length will be.
+
+Sometimes these relationships are intuitive, such as a taller person being heavier than a short person, but not always. Generally, we use data science to look for non-obvious relationships and patterns. This way the computer models complement our thinking. We use linear regression as just one tool.
 
 Now that we have an intuitive grasp on the subject from the visualization, let's look at the statistical facts about this model.
 
@@ -100,3 +105,58 @@ summary(model)
 <!-- -->
 
 -   The output is in **log-odds**, but we can convert it to probabilities.
+
+In R 4.5.0, you can use the **`palmerpenguins`** dataset, which is a built-in dataset (after loading the appropriate package), to perform regression analysis. Here's a simple example using **linear regression** to predict penguin **body mass** from **flipper length**.
+
+First, we'll make sure to have the `palmerpenguins` package installed and loaded:
+
+```{r}
+# Install if you haven't already
+install.packages("palmerpenguins")
+
+# Load the package
+library(palmerpenguins)
+```
+
+Then we would build the model:
+
+```{r}
+
+# Load the data
+data("penguins")
+
+# Remove rows with missing values
+penguins_clean <- na.omit(penguins)
+
+# Fit a linear regression model: body_mass_g ~ flipper_length_mm
+model <- lm(body_mass_g ~ flipper_length_mm, data = penguins_clean)
+
+# Show summary of the model
+summary(model)
+```
+
+### Explanation:
+
+-   `lm()` fits a linear regression model.
+
+-   `body_mass_g` is the response variable.
+
+-   `flipper_length_mm` is the predictor.
+
+Here is how you could visualize the model:
+
+```{r}
+# Plot
+plot(penguins_clean$flipper_length_mm, penguins_clean$body_mass_g,
+     main = "Body Mass vs Flipper Length",
+     xlab = "Flipper Length (mm)",
+     ylab = "Body Mass (g)",
+     pch = 19, col = "steelblue")
+
+# Add regression line
+abline(model, col = "red", lwd = 2)
+```
+
+What the model demonstrates is that for every 1 mm increase in flipper length, the predicted body mass increases by approximately 58.4 grams.
+
+To learn more technical aspects of linear regression, read [this Wikipedia entry](https://en.wikipedia.org/wiki/Linear_regression){.uri}.

@@ -2,11 +2,11 @@
 title: "About"
 ---
 
-Bottom Line Up Front: As a strategic planner and software developer, my goal is data analysis that yields actionable insights.
+**Bottom Line Up Front:** As a strategic planner and software developer, my goal is data analysis that yields actionable insights.
 
--   👋 Hi, I’m JT, aka \@DSD-resilience on [GitHub](https://github.com/DSD-resilience), because resilience is a one of the key values of my digital products firm, DSD.
+-   👋 Hello, I’m JT, aka \@DSD-resilience on [GitHub](https://github.com/DSD-resilience), because resilience is a one of the key values of my digital products firm, DSD.
 
--   👀 I’m interested in Shiny apps, statistics, AI-ML, data storytelling, and cyber resiliency.
+-   👀 I’m interested in statistics, AI-ML, data storytelling, and cyber resiliency.
 
 -   🌱 I’m always learning more R, Python and SQL.
 
@@ -17,3 +17,5 @@ Bottom Line Up Front: As a strategic planner and software developer, my goal is 
 -   😄 Dad Joke of the Day: How do you throw a party in outer space? You plan-et!
 
 -   ⚡ Fun fact: I am a (former) Russian/Ukrainian linguist.
+
+**Resume:**

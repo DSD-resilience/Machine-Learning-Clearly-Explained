@@ -5,7 +5,9 @@ format: html
 
 Classification models are used when you know the categories, or labels, that you want to use on your data. Both classification and regression are forms of **supervised** learning.
 
-Supervised learning is a type of machine learning where the model learns from a labeled data set—that is, data that has both **input features (X)** and known **target outputs (Y)**. The goal is to learn a function that maps inputs to outputs so it can make predictions on new, unseen data.
+Supervised learning is a type of machine learning where the model learns from a labeled data set—that is, data that has both **input features (X)** and known **target outputs (Y)**.
+
+The machine learns to map inputs to outputs so it can make predictions on new, unseen data.
 
 A practical example of supervised learning and classification is spam email detection. We want to automatically classify incoming emails as **"spam"** or **"not spam."** The **inputs (features) c**ould include:
 
@@ -19,6 +21,8 @@ A practical example of supervised learning and classification is spam email dete
 
 -   Frequency of punctuation like "!!!" or "\$\$\$"
 
+-   Use of ALL CAPS
+
 These act like clues to let the computer know that a specific email could be spam. You can understand how this is modeled on human thinking. We also look for patterns that will lead us to a conclusion.
 
 The **outputs (labels)** in this case would be `1` for spam, and `0` for not spam (aka ham). If you have email a classification model is likely at work on your account, separating the "spam" from the "ham."
@@ -29,13 +33,80 @@ Common supervised learning models used for classifying data are:
 
 This is a statistical method used to model the relationship between a binary dependent variable and one or more independent variables. An answer is either "yes" or "no." It estimates the probability that the dependent variable equals a certain value (usually 1), using a logistic function (a sigmoid, or s-shaped, curve).
 
-To run a logistic regression in R, use the `glm()` function with an argument of `family = binomial`. This fits a generalized linear model where the dependent variable is binary (0/1). You should check assumptions, multicollinearity, and goodness-of-fit afterward. Below is the basic structure in an example:
+To run a logistic regression in R, use the `glm()` function with an argument of `family = binomial`. This fits a generalized linear model where the dependent variable is binary (0/1). You should check assumptions, multicollinearity, and goodness-of-fit afterward.
 
 **Naive Bayes (N-B)**
 
 N-B is a probabilistic machine learning algorithm based on Bayes’ Theorem. It's particularly used for classification tasks, and it's called “naive” because it assumes independence between features — which is rarely true in practice, but surprisingly effective in many cases.
 
-For example, in spam detection, N-B would assume that the presence of the word “free” is independent of “money” — given the email is spam. Not usually true, but this simplifies the math **a lot**.
+For example, in spam detection, N-B would assume that the presence of the word “free” is independent of “money” — given the email is spam. This is not usually true, but this simplifies the math **a lot**.
+
+Here's a simple example of implementing **Naive Bayes** in **R** using the built-in `iris` dataset and the `e1071` package.
+
+------------------------------------------------------------------------
+
+### 📦 Step 1: Install and load the required package
+
+``` r
+install.packages("e1071")  # Only run this once
+library(e1071)
+```
+
+------------------------------------------------------------------------
+
+### 🌸 Step 2: Prepare the data
+
+We’ll use the famous `iris` dataset, which classifies flowers into three species.
+
+``` r
+data(iris)
+
+# Let's split the data into training and test sets
+set.seed(123)  # For reproducibility
+indexes <- sample(1:nrow(iris), 0.7 * nrow(iris))
+train_data <- iris[indexes, ]
+test_data <- iris[-indexes, ]
+```
+
+------------------------------------------------------------------------
+
+### 🧠 Step 3: Train the Naive Bayes model
+
+``` r
+model <- naiveBayes(Species ~ ., data = train_data)
+print(model)
+```
+
+------------------------------------------------------------------------
+
+### 🧪 Step 4: Make predictions
+
+``` r
+predictions <- predict(model, test_data)
+```
+
+------------------------------------------------------------------------
+
+### 📊 Step 5: Evaluate the model
+
+``` r
+{r}
+#| message: false
+#| warning: false
+#| output: true
+
+confusion_matrix <- table(Predicted = predictions, Actual = test_data$Species)
+print(confusion_matrix)
+
+accuracy <- sum(diag(confusion_matrix)) / sum(confusion_matrix)
+cat("Accuracy:", round(accuracy * 100, 2), "%\n")
+```
+
+------------------------------------------------------------------------
+
+A confusion matrix is a table that visualizes the performance of a classification model by comparing its predicted labels to the true labels. It's a valuable tool for understanding where a model might be getting confused and identifying areas for improvement.
+
+You can explore Naive Bayes further with different data sets, feature selection, and using the `caret` or `mlr3` packages in R for more structured workflows.
 
 **Support Vector Machines**
 
@@ -43,6 +114,167 @@ SVM is a supervised machine learning algorithm primarily used for classification
 
 At its core, an SVM tries to find the best boundary (hyperplane) that separates data points of different classes in the feature space. SVM tries to **maximize the margin** between data points of different classes. The margin is the distance between the hyperplane and the **nearest points from each class**, which are called **support vectors**.
 
+A SVM for R might look like this:
+
+------------------------------------------------------------------------
+
+### 📦 Step 1: Install and load the required package
+
+```{r}
+#| message: false
+#| warning: false
+#| output: truey
+# Install if not already installed
+install.packages("e1071") # Only run this once
+
+# Load the package
+library(e1071)
+```
+
+You might notice that the `e1071` package is handy. You can use it for both N-B and SVM, and thus easily build and compare the two types of models.
+
 **Random Forests**
 
-Neural Networks
+These are essentially a collection of decision trees—hence the name "forest." Each tree is trained on a slightly different subset of the data, and their outputs are aggregated to make the final prediction.
+
+For classification, the forest outputs the class that has the majority vote among the trees.
+
+For regression, it averages the predictions of all the trees.
+
+But what about it is "random?"
+
+1.  **Bootstrap sampling (Bagging)**: Each tree is trained on a **random sample** (with replacement) of the training data.
+
+2.  **Random feature selection**: When splitting nodes, each tree considers only a **random subset of features** instead of all features. This adds diversity and reduces correlation among trees.
+
+Here's an example of using Random Forest in R using the built-in `iris` dataset. We'll use the `randomForest` package, a popular and simple way to build Random Forest models.
+
+### ✅ **Step-by-step Random Forest Example in R**
+
+#### 1. **Install and load the package**
+
+```         
+install.packages("randomForest")  # Only run once library(randomForest) 
+```
+
+#### 2. **Load the data**
+
+```         
+data(iris) head(iris) 
+```
+
+#### 3. **Split the data into training and test sets**
+
+```         
+set.seed(123)  # For reproducibility sample_index <- sample(1:nrow(iris), 0.7 * nrow(iris))  # 70% train train_data <- iris[sample_index, ] test_data <- iris[-sample_index, ] 
+```
+
+#### 4. **Train the Random Forest model**
+
+```         
+model <- randomForest(Species ~ ., data = train_data, ntree = 100, mtry = 2, importance = TRUE) print(model) 
+```
+
+#### 5. **Predict on test data**
+
+```         
+predictions <- predict(model, newdata = test_data) 
+```
+
+#### 6. **Evaluate model accuracy**
+
+```         
+confusion_matrix <- table(predicted = predictions, actual = test_data$Species) print(confusion_matrix) accuracy <- sum(diag(confusion_matrix)) / sum(confusion_matrix) cat("Accuracy:", accuracy) 
+```
+
+#### 7. **Plot feature importance**
+
+```         
+importance(model) varImpPlot(model) 
+```
+
+**Neural Networks**
+
+A Neural Networks (NN) machine learning model inspired by how the human brain works. It is composed of layers of interconnected nodes (called **neurons**) that can learn to recognize patterns in data.
+
+In essence, a neural network is a **function approximator** that maps input data to an output (like predicting if a person has diabetes or classifying an image).
+
+Here's a **brief example** of a neural network built in **R** using the `neuralnet` package to predict the logical **AND** function.
+
+### 🔧 Prerequisites
+
+First, install and load the `neuralnet` package:
+
+```         
+install.packages("neuralnet") library(neuralnet) 
+```
+
+### 📊 Prepare the Data
+
+Create a simple dataset for the AND function:
+
+```         
+# Create data frame training_data <- data.frame(   input1 = c(0, 0, 1, 1),   input2 = c(0, 1, 0, 1),   output = c(0, 0, 0, 1) ) 
+```
+
+### 🧠 Train the Neural Network
+
+```         
+# Train neural network model <- neuralnet(output ~ input1 + input2,                     data = training_data,                     hidden = 2,      # One hidden layer with 2 neurons                    linear.output = FALSE)  # Plot the network plot(model) 
+```
+
+### 🔍 Make Predictions
+
+```         
+# Test the network predictions <- compute(model, training_data[, c("input1", "input2")]) predictions$net.result  # Output probabilities 
+```
+
+This is a basic example. For more complex datasets, consider using `keras` in R for deep learning. **Deep learning** is a subset of machine learning that uses neural networks with many layers (hence "deep") to model complex patterns in data. It excels at learning from large volumes of unstructured data such as images, audio, text, and video.
+
+Here's a simple example of a deep learning model in R using the `keras` package. This example uses the classic **MNIST handwritten digit classification** problem.
+
+### Step-by-step Example in R:
+
+#### 1. **Install and load the necessary packages**
+
+```         
+install.packages("keras") library(keras) 
+```
+
+#### 2. **Load the MNIST dataset**
+
+```         
+mnist <- dataset_mnist() x_train <- mnist$train$x y_train <- mnist$train$y x_test <- mnist$test$x y_test <- mnist$test$y 
+```
+
+#### 3. **Preprocess the data**
+
+```         
+# Reshape and normalize input data x_train <- array_reshape(x_train, c(nrow(x_train), 784)) / 255 x_test <- array_reshape(x_test, c(nrow(x_test), 784)) / 255  # One-hot encode the labels y_train <- to_categorical(y_train, 10) y_test <- to_categorical(y_test, 10) 
+```
+
+#### 4. **Define the deep learning model**
+
+```         
+model <- keras_model_sequential() %>%   layer_dense(units = 256, activation = 'relu', input_shape = c(784)) %>%   layer_dropout(rate = 0.4) %>%   layer_dense(units = 128, activation = 'relu') %>%   layer_dropout(rate = 0.3) %>%   layer_dense(units = 10, activation = 'softmax') 
+```
+
+#### 5. **Compile the model**
+
+```         
+model %>% compile(   loss = 'categorical_crossentropy',   optimizer = optimizer_adam(),   metrics = c('accuracy') ) 
+```
+
+#### 6. **Train the model**
+
+```         
+history <- model %>% fit(   x_train, y_train,   epochs = 30,   batch_size = 128,   validation_split = 0.2 ) 
+```
+
+#### 7. **Evaluate the model**
+
+```         
+score <- model %>% evaluate(x_test, y_test) cat('Test loss:', score$loss, '\n') cat('Test accuracy:', score$accuracy, '\n') 
+```
+
+This will train a neural network with two hidden layers on the MNIST dataset.
